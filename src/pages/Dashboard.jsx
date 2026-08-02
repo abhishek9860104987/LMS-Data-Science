@@ -7,6 +7,7 @@ import RecentlyWatched from '../components/RecentlyWatched';
 import CoursesEnrolled from './CoursesEnrolled';
 import SEOHead from '../components/SEOHead';
 import { useAuth } from '../contexts/AuthContext';
+import { API_URL } from '../utils/api';
 import {
   courseData,
   getFirstLesson,
@@ -58,7 +59,7 @@ const Dashboard = () => {
   /* ── Fetch progress from API ─────────────────────────────── */
   useEffect(() => {
     if (!token) return;
-    fetch('/api/progress', {
+    fetch(`${API_URL}/api/progress`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => res.json())
@@ -77,7 +78,7 @@ const Dashboard = () => {
   /* ── Sync progress to API ────────────────────────────────── */
   const syncProgress = useCallback((newCompleted, newHistory) => {
     if (!token) return;
-    fetch('/api/progress', {
+    fetch(`${API_URL}/api/progress`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -95,7 +96,7 @@ const Dashboard = () => {
   const handleToggleBookmark = useCallback(async (lessonId) => {
     if (!token) return;
     try {
-      const res = await fetch('/api/progress/bookmark', {
+      const res = await fetch(`${API_URL}/api/progress/bookmark`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiX, FiUser } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
+import { API_URL } from '../utils/api';
 
 const DetailRow = ({ label, value, darkMode }) => (
   <div className="flex items-center justify-between text-sm sm:text-base">
@@ -27,7 +28,7 @@ const ProfileModal = ({ isOpen, onClose, darkMode }) => {
       setPasswordData({ current: '', new: '', confirm: '' });
       setPasswordError('');
       setPasswordSuccess('');
-      fetch('/api/auth/profile', {
+      fetch(`${API_URL}/api/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -58,7 +59,7 @@ const ProfileModal = ({ isOpen, onClose, darkMode }) => {
 
     setUpdatingPassword(true);
     try {
-      const res = await fetch('/api/auth/password', {
+     const res = await fetch(`${API_URL}/api/auth/password`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

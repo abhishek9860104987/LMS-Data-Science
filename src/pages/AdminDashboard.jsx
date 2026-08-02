@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FiSearch, FiEdit2, FiTrash2, FiX, FiCheck, FiLogOut, FiEye, FiEyeOff, FiUsers, FiRefreshCw, FiKey } from 'react-icons/fi';
 import logo from '../assets/logo.png';
+import { API_URL } from '../utils/api';
 
 /* ─── helpers ───────────────────────────────────────────────── */
 const ADMIN_TOKEN_KEY = 'dsm_admin_token';
@@ -8,7 +9,7 @@ const ADMIN_TOKEN_KEY = 'dsm_admin_token';
 const api = async (path, options = {}, token = null) => {
   const headers = { 'Content-Type': 'application/json', ...(options.headers || {}) };
   if (token) headers['Authorization'] = `Bearer ${token}`;
-  const res = await fetch(path, { ...options, headers });
+  const res = await fetch(`${API_URL}${path}`, { ...options, headers });
   const data = await res.json();
   if (!res.ok) throw new Error(data.detail || 'Request failed');
   return data;
