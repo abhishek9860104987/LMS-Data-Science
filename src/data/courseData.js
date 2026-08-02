@@ -23,7 +23,7 @@ export const courseData = {
       id: "1-1",
       title: "Python Crash Course",
       videoUrl: "https://www.youtube.com/embed/VchuKL44s6E",
-      duration: "00:00",
+      duration: "1:19:40",
       completed: false,
       description: "Fast-track introduction to Python programming"
     },
@@ -31,7 +31,7 @@ export const courseData = {
       id: "1-2",
       title: "NumPy",
       videoUrl: "https://www.youtube.com/embed/zI5ducyfyNc",
-      duration: "00:00",
+      duration: "40:50",
       completed: false,
       description: "Numerical computing with NumPy arrays and operations"
     },
@@ -39,7 +39,7 @@ export const courseData = {
       id: "1-3",
       title: "Pandas",
       videoUrl: "https://www.youtube.com/embed/EXIgjIBu4EU",
-      duration: "00:00",
+      duration: "30:37",
       completed: false,
       description: "Data manipulation and analysis with Pandas DataFrames"
     },
@@ -47,7 +47,6 @@ export const courseData = {
       id: "1-4",
       title: "Vectors and Matrices as Data",
       videoUrl: "https://pabloinsente.github.io/intro-linear-algebra",
-      duration: "00:00",
       completed: false,
       description: "Representing data as vectors and matrices"
     },
@@ -55,7 +54,7 @@ export const courseData = {
       id: "1-5",
       title: "Matrix Operations in Practice",
       videoUrl: "https://www.youtube.com/embed/c09drtuCS3c",
-      duration: "00:00",
+      duration: "34:08",
       completed: false,
       description: "Addition, multiplication, transpose, and inverse operations"
     },
@@ -63,7 +62,7 @@ export const courseData = {
       id: "1-6",
       title: "Eigenvalues and Eigenvectors",
       videoUrl: "https://www.youtube.com/embed/1wjXVdwzgX8",
-      duration: "00:00",
+      duration: "24:21",
       completed: false,
       description: "Eigendecomposition and its applications in ML"
     },
@@ -71,7 +70,7 @@ export const courseData = {
       id: "1-7",
       title: "Dimensionality Reduction Basics",
       videoUrl: "https://www.youtube.com/embed/ToGuhynu-No",
-      duration: "00:00",
+      duration: "15:25",
       completed: false,
       description: "PCA and other dimensionality reduction techniques"
     },
@@ -79,7 +78,7 @@ export const courseData = {
       id: "1-8",
       title: "Stats and It's Types",
       videoUrl: "https://www.youtube.com/embed/7V5jtI-ihm0",
-      duration: "00:00",
+      duration: "15:31",
       completed: false,
       description: "Descriptive vs inferential statistics overview"
     },
@@ -87,7 +86,7 @@ export const courseData = {
       id: "1-9",
       title: "Hypothesis Testing Basics",
       videoUrl: "https://www.youtube.com/embed/OG8L4qzGMoA",
-      duration: "00:00",
+      duration: "9:04",
       completed: false,
       description: "Null hypothesis, p-values, and statistical significance"
     },
@@ -95,7 +94,7 @@ export const courseData = {
       id: "1-10",
       title: "Error Metrics and Graphical Intuition",
       videoUrl: "https://www.youtube.com/embed/l_YszNIJfFA",
-      duration: "00:00",
+      duration: "16:59",
       completed: false,
       description: "Common error metrics visualized with graphical intuition"
     },
@@ -103,7 +102,7 @@ export const courseData = {
       id: "1-11",
       title: "Distribution and Stationarity Testing",
       videoUrl: "https://www.youtube.com/embed/we4p332VoPQ",
-      duration: "00:00",
+      duration: "21:18",
       completed: false,
       description: "Testing data distributions and stationarity in time series"
     },
@@ -111,7 +110,7 @@ export const courseData = {
       id: "1-12",
       title: "Model Monitoring Basics",
       videoUrl: "https://www.youtube.com/embed/tQjRQWfYQ10",
-      duration: "00:00",
+      duration: "17:45",
       completed: false,
       description: "Introduction to model monitoring and observability"
     },
@@ -119,7 +118,7 @@ export const courseData = {
       id: "1-13",
       title: "Core Concepts",
       videoUrl: "https://www.youtube.com/embed/bcv61eKpYto",
-      duration: "00:00",
+      duration: "10:47",
       completed: false,
       description: "Foundational concepts in data science and ML"
     },
@@ -127,7 +126,7 @@ export const courseData = {
       id: "1-14",
       title: "Distributions in the Wild",
       videoUrl: "https://www.youtube.com/embed/DUT4WEUngt0",
-      duration: "00:00",
+      duration: "1:34:05",
       completed: false,
       description: "Common probability distributions and their real-world applications"
     },
@@ -135,7 +134,7 @@ export const courseData = {
       id: "1-15",
       title: "Bayes' Theorem Intuition",
       videoUrl: "https://www.youtube.com/embed/zeJD6dqJ5lo",
-      duration: "00:00",
+      duration: "1:20:29",
       completed: false,
       description: "Understanding Bayes' theorem with intuitive examples"
     },
@@ -143,7 +142,7 @@ export const courseData = {
       id: "1-16",
       title: "The Central Limit Theorem (CLT)",
       videoUrl: "",
-      duration: "00:00",
+      duration: "31:14",
       completed: false,
       description: "Why the CLT is the cornerstone of statistical inference"
     }
@@ -159,7 +158,7 @@ export const courseData = {
       id: "2-1",
       title: "Types of ML",
       videoUrl: "https://www.youtube.com/embed/ZftI2fEz0Fw",
-      duration: "00:00",
+      duration: "20:00",
       completed: false,
       description: "Supervised, unsupervised, and reinforcement learning overview"
     },
@@ -167,7 +166,7 @@ export const courseData = {
       id: "2-2",
       title: "ML Pipeline",
       videoUrl: "https://www.youtube.com/embed/iDbhQGz_rEo",
-      duration: "00:00",
+      duration: "25:13",
       completed: false,
       description: "End-to-end machine learning pipeline walkthrough"
     },
@@ -175,7 +174,7 @@ export const courseData = {
       id: "2-3",
       title: "Bias-Variance Tradeoff",
       videoUrl: "https://www.youtube.com/embed/m5E6QxKFYlM",
-      duration: "00:00",
+      duration: "12:17",
       completed: false,
       description: "Understanding bias, variance, and the tradeoff between them"
     },
@@ -183,7 +182,7 @@ export const courseData = {
       id: "2-4",
       title: "Overfitting and Underfitting",
       videoUrl: "https://www.youtube.com/embed/m5E6QxKFYlM",
-      duration: "00:00",
+      duration: "12:17",
       completed: false,
       description: "Diagnosing and fixing overfitting and underfitting models"
     },
@@ -191,7 +190,7 @@ export const courseData = {
       id: "2-5",
       title: "Data Cleaning",
       videoUrl: "https://www.youtube.com/embed/ToGuhynu-No",
-      duration: "00:00",
+      duration: "15:24",
       completed: false,
       description: "Handling missing values, outliers, and noisy data"
     },
@@ -199,7 +198,7 @@ export const courseData = {
       id: "2-6",
       title: "Exploratory Data Analysis (EDA)",
       videoUrl: "https://www.youtube.com/embed/4HyTlbHUKSw",
-      duration: "00:00",
+      duration: "30:31",
       completed: false,
       description: "Techniques to explore and summarize datasets"
     },
@@ -207,7 +206,7 @@ export const courseData = {
       id: "2-7",
       title: "Encoding Techniques",
       videoUrl: "https://www.youtube.com/embed/w2GglmYHfmM",
-      duration: "00:00",
+      duration: "19:53",
       completed: false,
       description: "Label encoding, one-hot encoding, target encoding and more"
     },
@@ -215,7 +214,7 @@ export const courseData = {
       id: "2-8",
       title: "Feature Scaling",
       videoUrl: "https://www.youtube.com/embed/1Yw9sC0PNwY",
-      duration: "00:00",
+      duration: "32:38",
       completed: false,
       description: "Normalization, standardization, and when to use each"
     },
@@ -223,7 +222,7 @@ export const courseData = {
       id: "2-9",
       title: "Feature Engineering",
       videoUrl: "https://www.youtube.com/embed/sluoVhT0ehg",
-      duration: "00:00",
+      duration: "24:52",
       completed: false,
       description: "Creating new features to improve model performance"
     },
@@ -231,7 +230,7 @@ export const courseData = {
       id: "2-10",
       title: "Pipelines",
       videoUrl: "https://www.youtube.com/embed/xOccYkgRV4Q",
-      duration: "00:00",
+      duration: "45:39",
       completed: false,
       description: "Building reproducible ML pipelines with scikit-learn"
     },
@@ -239,7 +238,7 @@ export const courseData = {
       id: "2-11",
       title: "Data Leakage",
       videoUrl: "https://www.youtube.com/embed/Lln1PKgGr_M",
-      duration: "00:00",
+      duration: "17:07",
       completed: false,
       description: "Identifying and preventing data leakage in ML projects"
     },
@@ -247,7 +246,7 @@ export const courseData = {
       id: "2-12",
       title: "Linear Regression",
       videoUrl: "https://www.youtube.com/embed/UZPfbG0jNec",
-      duration: "00:00",
+      duration: "33:36",
       completed: false,
       description: "Simple and multiple linear regression from scratch"
     },
@@ -255,7 +254,7 @@ export const courseData = {
       id: "2-13",
       title: "Ridge Regression (L2)",
       videoUrl: "https://www.youtube.com/embed/aEow1QoTLo0",
-      duration: "00:00",
+      duration: "19:58",
       completed: false,
       description: "L2 regularization and ridge regression"
     },
@@ -263,7 +262,7 @@ export const courseData = {
       id: "2-14",
       title: "Lasso Regression (L1)",
       videoUrl: "https://www.youtube.com/embed/HLF4bFbBgwk",
-      duration: "00:00",
+      duration: "28:37",
       completed: false,
       description: "L1 regularization, lasso regression, and feature selection"
     },
@@ -271,7 +270,7 @@ export const courseData = {
       id: "2-15",
       title: "Evaluation Metrics",
       videoUrl: "https://www.youtube.com/embed/Ti7c-Hz7GSM",
-      duration: "00:00",
+      duration: "43:56",
       completed: false,
       description: "MAE, MSE, RMSE, R² and other regression evaluation metrics"
     },
@@ -279,7 +278,7 @@ export const courseData = {
       id: "2-16",
       title: "Cross Validation",
       videoUrl: "https://www.youtube.com/embed/S5NkE-xgx98",
-      duration: "00:00",
+      duration: "15:19",
       completed: false,
       description: "K-fold, stratified, and leave-one-out cross validation"
     },
@@ -287,7 +286,7 @@ export const courseData = {
       id: "2-17",
       title: "Hyperparameter Tuning",
       videoUrl: "https://www.youtube.com/embed/Us5ZFp16PaU",
-      duration: "00:00",
+      duration: "15:35",
       completed: false,
       description: "Grid search, random search, and Bayesian optimization"
     },
@@ -295,7 +294,7 @@ export const courseData = {
       id: "2-18",
       title: "Time Series Components",
       videoUrl: "https://www.youtube.com/embed/i7HARZlJv7Y",
-      duration: "00:00",
+      duration: "03:24",
       completed: false,
       description: "Trend, seasonality, and residuals in time series"
     },
@@ -303,7 +302,7 @@ export const courseData = {
       id: "2-19",
       title: "Stationarity",
       videoUrl: "https://www.youtube.com/embed/621MSxpYv60",
-      duration: "00:00",
+      duration: "09:37",
       completed: false,
       description: "Testing and achieving stationarity in time series data"
     },
@@ -311,7 +310,7 @@ export const courseData = {
       id: "2-20",
       title: "Lag Features",
       videoUrl: "https://www.youtube.com/embed/4Vq8KqbHKh8",
-      duration: "00:00",
+      duration: "09:35",
       completed: false,
       description: "Creating lag features for time series forecasting"
     },
@@ -319,7 +318,7 @@ export const courseData = {
       id: "2-21",
       title: "Rolling Statistics",
       videoUrl: "https://www.youtube.com/embed/-_2wOrEuFaM",
-      duration: "00:00",
+      duration: "16:02",
       completed: false,
       description: "Rolling mean, rolling std, and window functions"
     },
@@ -327,7 +326,7 @@ export const courseData = {
       id: "2-22",
       title: "Forecasting",
       videoUrl: "https://www.youtube.com/embed/jhh4tHYmVew",
-      duration: "00:00",
+      duration: "05:31",
       completed: false,
       description: "ARIMA, SARIMA, and ML-based forecasting approaches"
     },
@@ -335,7 +334,7 @@ export const courseData = {
       id: "2-23",
       title: "Chronological Split",
       videoUrl: "https://www.youtube.com/embed/1rZpbvSI26c",
-      duration: "00:00",
+      duration: "10:34",
       completed: false,
       description: "Why time series data needs chronological train/test splits"
     }
@@ -351,7 +350,7 @@ export const courseData = {
       id: "3-1",
       title: "Logistic Regression",
       videoUrl: "https://www.youtube.com/embed/XNXzVfItWGY",
-      duration: "00:00",
+      duration: "47:06",
       completed: false,
       description: "Binary and multiclass logistic regression"
     },
@@ -359,7 +358,7 @@ export const courseData = {
       id: "3-2",
       title: "Naive Bayes",
       videoUrl: "https://www.youtube.com/embed/Ty7knppVo9E",
-      duration: "00:00",
+      duration: "09:25",
       completed: false,
       description: "Gaussian, Bernoulli, and Multinomial Naive Bayes"
     },
@@ -367,7 +366,7 @@ export const courseData = {
       id: "3-3",
       title: "K-Nearest Neighbors",
       videoUrl: "https://www.youtube.com/embed/abnL_GUGub4",
-      duration: "00:00",
+      duration: "25:01",
       completed: false,
       description: "KNN algorithm for classification and regression"
     },
@@ -375,7 +374,7 @@ export const courseData = {
       id: "3-4",
       title: "SVM",
       videoUrl: "https://www.youtube.com/embed/9iD8DMF6odw",
-      duration: "00:00",
+      duration: "25:23",
       completed: false,
       description: "Support Vector Machines with kernel tricks"
     },
@@ -383,7 +382,7 @@ export const courseData = {
       id: "3-5",
       title: "Evaluation Metrics",
       videoUrl: "https://www.youtube.com/embed/Ti7c-Hz7GSM",
-      duration: "00:00",
+      duration: "43:55",
       completed: false,
       description: "Accuracy, precision, recall, F1, ROC-AUC"
     },
@@ -391,7 +390,7 @@ export const courseData = {
       id: "3-6",
       title: "Decision Tree",
       videoUrl: "https://www.youtube.com/embed/IZnno-dKgVQ",
-      duration: "00:00",
+      duration: "58:28",
       completed: false,
       description: "Decision tree algorithm, Gini impurity, and information gain"
     },
@@ -399,7 +398,7 @@ export const courseData = {
       id: "3-7",
       title: "Random Forest",
       videoUrl: "https://www.youtube.com/embed/F9uESCHGjhA",
-      duration: "00:00",
+      duration: "33:25",
       completed: false,
       description: "Ensemble learning with bagging and random forests"
     },
@@ -407,7 +406,7 @@ export const courseData = {
       id: "3-8",
       title: "Feature Importance",
       videoUrl: "https://www.youtube.com/embed/R47JAob1xBY",
-      duration: "00:00",
+      duration: "27:19",
       completed: false,
       description: "Understanding and visualizing feature importance"
     },
@@ -415,7 +414,7 @@ export const courseData = {
       id: "3-9",
       title: "AdaBoost",
       videoUrl: "https://www.youtube.com/embed/sFKnP0iP0K0",
-      duration: "00:00",
+      duration: "17:14",
       completed: false,
       description: "Adaptive Boosting and weak learner ensembles"
     },
@@ -423,7 +422,7 @@ export const courseData = {
       id: "3-10",
       title: "Gradient Boosting",
       videoUrl: "https://www.youtube.com/embed/4p5EQtyxSyI",
-      duration: "00:00",
+      duration: "1:04:33",
       completed: false,
       description: "Gradient boosting machines from scratch"
     },
@@ -431,7 +430,7 @@ export const courseData = {
       id: "3-11",
       title: "XGBoost",
       videoUrl: "https://www.youtube.com/embed/C6aDw4y8qJ0",
-      duration: "00:00",
+      duration: "01:19:37",
       completed: false,
       description: "Extreme Gradient Boosting — theory and implementation"
     },
@@ -439,7 +438,7 @@ export const courseData = {
       id: "3-12",
       title: "LightGBM",
       videoUrl: "https://www.youtube.com/embed/9uxWzeLglr0",
-      duration: "00:00",
+      duration: "10:48",
       completed: false,
       description: "LightGBM — fast, distributed gradient boosting"
     },
@@ -447,7 +446,7 @@ export const courseData = {
       id: "3-13",
       title: "Stacking",
       videoUrl: "https://www.youtube.com/embed/O-aDHBGMqXA",
-      duration: "00:00",
+      duration: "35:20",
       completed: false,
       description: "Stacked generalization and meta-learning ensembles"
     },
@@ -455,7 +454,7 @@ export const courseData = {
       id: "3-14",
       title: "K-Means",
       videoUrl: "https://www.youtube.com/embed/5shTLzwAdEc",
-      duration: "00:00",
+      duration: "23:57",
       completed: false,
       description: "K-Means clustering algorithm and elbow method"
     },
@@ -463,7 +462,7 @@ export const courseData = {
       id: "3-15",
       title: "K-Medoids",
       videoUrl: "https://www.youtube.com/embed/qKHKWnjQlFQ",
-      duration: "00:00",
+      duration: "10:52",
       completed: false,
       description: "K-Medoids (PAM) — robust alternative to K-Means"
     },
@@ -471,7 +470,7 @@ export const courseData = {
       id: "3-16",
       title: "DBSCAN",
       videoUrl: "https://www.youtube.com/embed/1_bLnsNmhCI",
-      duration: "00:00",
+      duration: "34:16",
       completed: false,
       description: "Density-Based Spatial Clustering of Applications with Noise"
     },
@@ -479,7 +478,7 @@ export const courseData = {
       id: "3-17",
       title: "Hierarchical Clustering",
       videoUrl: "https://www.youtube.com/embed/Ka5i9TVUT-E",
-      duration: "00:00",
+      duration: "37:22",
       completed: false,
       description: "Agglomerative and divisive hierarchical clustering"
     },
@@ -487,7 +486,7 @@ export const courseData = {
       id: "3-18",
       title: "Evaluation",
       videoUrl: "https://www.youtube.com/embed/TjDytm85d78",
-      duration: "00:00",
+      duration: "18:34",
       completed: false,
       description: "Clustering evaluation: silhouette score, Davies-Bouldin index"
     }
@@ -503,7 +502,6 @@ export const courseData = {
       id: "4-1",
       title: "Perceptron",
       videoUrl: "https://www.geeksforgeeks.org/deep-learning/what-is-perceptron-the-simplest-artificial-neural-network/",
-      duration: "00:00",
       completed: false,
       description: "The biological neuron and the perceptron model"
     },
@@ -511,7 +509,6 @@ export const courseData = {
       id: "4-2",
       title: "MLP",
       videoUrl: "https://www.geeksforgeeks.org/deep-learning/multi-layer-perceptron-learning-in-tensorflow/",
-      duration: "00:00",
       completed: false,
       description: "Multi-Layer Perceptron architecture and universal approximation"
     },
@@ -519,7 +516,6 @@ export const courseData = {
       id: "4-3",
       title: "Forward Pass",
       videoUrl: "https://www.geeksforgeeks.org/deep-learning/feedforward-neural-network/",
-      duration: "00:00",
       completed: false,
       description: "How data flows forward through a neural network"
     },
@@ -527,7 +523,6 @@ export const courseData = {
       id: "4-4",
       title: "Backpropagation",
       videoUrl: "https://www.geeksforgeeks.org/machine-learning/backpropagation-in-neural-network/",
-      duration: "00:00",
       completed: false,
       description: "Chain rule, gradients, and backpropagation algorithm"
     },
@@ -535,7 +530,6 @@ export const courseData = {
       id: "4-5",
       title: "Sigmoid and Tanh",
       videoUrl: "https://www.geeksforgeeks.org/machine-learning/derivative-of-the-sigmoid-function/",
-      duration: "00:00",
       completed: false,
       description: "Sigmoid and hyperbolic tangent activation functions"
     },
@@ -543,7 +537,6 @@ export const courseData = {
       id: "4-6",
       title: "ReLU Family",
       videoUrl: "https://www.geeksforgeeks.org/deep-learning/relu-activation-function-in-deep-learning/",
-      duration: "00:00",
       completed: false,
       description: "ReLU, Leaky ReLU, ELU, GELU and dying neuron problem"
     },
@@ -551,7 +544,7 @@ export const courseData = {
       id: "4-7",
       title: "Loss Functions (DL)",
       videoUrl: "https://www.youtube.com/embed/gb5nm_3jBIo",
-      duration: "00:00",
+      duration: "59:56",
       completed: false,
       description: "Cross-entropy, MSE, Huber loss for deep learning"
     },
@@ -559,7 +552,7 @@ export const courseData = {
       id: "4-8",
       title: "Convolution Layer",
       videoUrl: "https://www.youtube.com/embed/9wmImImmgcI",
-      duration: "00:00",
+      duration: "35:23",
       completed: false,
       description: "Convolution operation, filters, and feature maps"
     },
@@ -567,7 +560,7 @@ export const courseData = {
       id: "4-9",
       title: "Pooling and Stride",
       videoUrl: "https://www.youtube.com/embed/DwmGefkowCU",
-      duration: "00:00",
+      duration: "27:53",
       completed: false,
       description: "Max pooling, average pooling, and stride explained"
     },
@@ -575,7 +568,7 @@ export const courseData = {
       id: "4-10",
       title: "Padding",
       videoUrl: "https://www.youtube.com/embed/btWE6SsdDZA",
-      duration: "00:00",
+      duration: "24:26",
       completed: false,
       description: "Same vs valid padding and its effect on output dimensions"
     },
@@ -583,7 +576,7 @@ export const courseData = {
       id: "4-11",
       title: "CNN Architectures",
       videoUrl: "https://www.youtube.com/embed/ewsvsJQOuTI",
-      duration: "00:00",
+      duration: "20:00",
       completed: false,
       description: "LeNet, AlexNet, VGG, ResNet, and Inception"
     },
@@ -591,7 +584,7 @@ export const courseData = {
       id: "4-12",
       title: "Transfer Learning",
       videoUrl: "https://www.youtube.com/embed/0MVXteg7TB4",
-      duration: "00:00",
+      duration: "24:28",
       completed: false,
       description: "Fine-tuning pretrained CNNs for custom tasks"
     }
@@ -607,7 +600,7 @@ export const courseData = {
       id: "5-1",
       title: "RNN Architecture",
       videoUrl: "https://www.youtube.com/embed/4KpRP-YUw6c",
-      duration: "00:00",
+      duration: "30:18",
       completed: false,
       description: "Recurrent Neural Network structure and hidden state"
     },
@@ -615,7 +608,7 @@ export const courseData = {
       id: "5-2",
       title: "BPTT",
       videoUrl: "https://www.youtube.com/embed/AWHSZzp96kM",
-      duration: "00:00",
+      duration: "32:18",
       completed: false,
       description: "Backpropagation Through Time and vanishing gradients"
     },
@@ -623,7 +616,7 @@ export const courseData = {
       id: "5-3",
       title: "RNN Applications",
       videoUrl: "https://www.youtube.com/embed/JgnbwKnHMZQ",
-      duration: "00:00",
+      duration: "36:57",
       completed: false,
       description: "Sequence modeling, text generation, and sentiment analysis"
     },
@@ -631,7 +624,7 @@ export const courseData = {
       id: "5-4",
       title: "Gates (Forget / Input / Output)",
       videoUrl: "https://www.youtube.com/embed/z7IPBg6MyrU",
-      duration: "00:00",
+      duration: "42:18",
       completed: false,
       description: "LSTM gates — forget, input, and output gate mechanics"
     },
@@ -639,7 +632,7 @@ export const courseData = {
       id: "5-5",
       title: "Cell State vs Hidden State",
       videoUrl: "https://www.youtube.com/embed/fiqo6uPCJVI",
-      duration: "00:00",
+      duration: "1:00:05",
       completed: false,
       description: "Long-term vs short-term memory in LSTM networks"
     },
@@ -647,7 +640,7 @@ export const courseData = {
       id: "5-6",
       title: "LSTM Applications",
       videoUrl: "https://www.youtube.com/embed/fiqo6uPCJVI",
-      duration: "00:00",
+      duration: "1:00:05",
       completed: false,
       description: "Time series forecasting, NLP, and speech with LSTM"
     },
@@ -655,7 +648,7 @@ export const courseData = {
       id: "5-7",
       title: "Update Gate",
       videoUrl: "https://www.youtube.com/embed/QQfZAoNGQmE",
-      duration: "00:00",
+      duration: "1:26:22",
       completed: false,
       description: "GRU update gate and reset gate explained"
     },
@@ -663,7 +656,7 @@ export const courseData = {
       id: "5-8",
       title: "GRU vs LSTM",
       videoUrl: "https://www.youtube.com/embed/TkOBxzhIySg",
-      duration: "00:00",
+      duration: "22:20",
       completed: false,
       description: "Comparing Gated Recurrent Units and LSTM architectures"
     },
@@ -671,7 +664,7 @@ export const courseData = {
       id: "5-9",
       title: "Attention Mechanism",
       videoUrl: "https://www.youtube.com/embed/KiL74WsgxoA",
-      duration: "00:00",
+      duration: "1:13:42",
       completed: false,
       description: "Bahdanau and Luong attention for sequence-to-sequence models"
     },
@@ -679,7 +672,7 @@ export const courseData = {
       id: "5-10",
       title: "Multi-Head Attention",
       videoUrl: "https://www.youtube.com/embed/bX2QwpjsmuA",
-      duration: "00:00",
+      duration: "18:27",
       completed: false,
       description: "Scaled dot-product attention and multi-head attention"
     },
@@ -687,7 +680,7 @@ export const courseData = {
       id: "5-11",
       title: "Positional Encoding",
       videoUrl: "https://www.youtube.com/embed/GeoQBNNqIbM",
-      duration: "00:00",
+      duration: "1:13:14",
       completed: false,
       description: "How transformers encode sequence order without recurrence"
     },
@@ -695,7 +688,6 @@ export const courseData = {
       id: "5-12",
       title: "Transformer Architecture",
       videoUrl: "https://www.geeksforgeeks.org/nlp/transformers-parameters/",
-      duration: "00:00",
       completed: false,
       description: "Encoder-decoder transformer: Attention is All You Need"
     },
@@ -703,7 +695,7 @@ export const courseData = {
       id: "5-13",
       title: "BERT vs GPT",
       videoUrl: "https://www.youtube.com/embed/HOIaznZjrG0",
-      duration: "00:00",
+      duration: "05:59",
       completed: false,
       description: "Bidirectional encoder vs autoregressive decoder models"
     }
@@ -719,7 +711,7 @@ export const courseData = {
       id: "6-1",
       title: "Autoencoder",
       videoUrl: "https://www.youtube.com/embed/hZ4a4NgM3u0",
-      duration: "00:00",
+      duration: "11:40",
       completed: false,
       description: "Encoder-decoder architecture for unsupervised learning"
     },
@@ -727,95 +719,57 @@ export const courseData = {
       id: "6-2",
       title: "Variational Autoencoder",
       videoUrl: "https://www.youtube.com/embed/nTt_ajul8NY",
-      duration: "00:00",
+      duration: "23:58",
       completed: false,
       description: "VAE — latent space sampling and the reparameterization trick"
     },
     {
       id: "6-3",
-      title: "GAN – Generator",
+      title: "GAN – Generator,GAN – Discriminator GAN Training",
       videoUrl: "https://www.youtube.com/embed/nTt_ajul8NY",
-      duration: "00:00",
+      duration: "23:58",
       completed: false,
       description: "Generator network: mapping noise to realistic samples"
     },
+   
+
     {
       id: "6-4",
-      title: "GAN – Discriminator",
+      title: "SGD+Momentum,adaGrad RMSprop Adam",
       videoUrl: "https://www.youtube.com/embed/TudQZtgpoHk",
-      duration: "00:00",
-      completed: false,
-      description: "Discriminator network: real vs fake sample classification"
-    },
-    {
-      id: "6-5",
-      title: "GAN Training",
-      videoUrl: "https://www.youtube.com/embed/G2fqAlgmoPo",
-      duration: "00:00",
-      completed: false,
-      description: "Adversarial training loop, mode collapse, and training tricks"
-    },
-    {
-      id: "6-6",
-      title: "SGD + Momentum",
-      videoUrl: "https://www.youtube.com/embed/fZM3oX4xEyg",
-      duration: "00:00",
-      completed: false,
-      description: "Stochastic Gradient Descent with momentum optimization"
-    },
-    {
-      id: "6-7",
-      title: "AdaGrad",
-      videoUrl: "https://www.youtube.com/embed/nAmC7SoVLd8",
-      duration: "00:00",
-      completed: false,
-      description: "Adaptive gradient algorithm for sparse features"
-    },
-    {
-      id: "6-8",
-      title: "RMSprop",
-      videoUrl: "https://www.youtube.com/embed/FQNUkIxzrpo",
-      duration: "00:00",
-      completed: false,
-      description: "Root Mean Square propagation optimizer"
-    },
-    {
-      id: "6-9",
-      title: "Adam",
-      videoUrl: "",
-      duration: "00:00",
+      duration: "1:41:54",
       completed: false,
       description: "Adaptive Moment Estimation — the most popular optimizer"
     },
     {
-      id: "6-10",
+      id: "6-5",
       title: "Intro to GenAI",
-      videoUrl: "",
-      duration: "00:00",
+      videoUrl: "https://www.youtube.com/embed/G2fqAlgmoPo",
+      duration: "22:07",
       completed: false,
       description: "Overview of generative AI models and applications"
     },
     {
-      id: "6-11",
+      id: "6-6",
       title: "RAG (LangChain)",
-      videoUrl: "",
-      duration: "00:00",
+      videoUrl: "https://www.youtube.com/embed/fZM3oX4xEyg",
+      duration: "20:39",
       completed: false,
       description: "Building a RAG pipeline using LangChain framework"
     },
     {
-      id: "6-12",
+      id: "6-7",
       title: "RAG (LangChain) Cont.",
-      videoUrl: "",
-      duration: "00:00",
+      videoUrl: "https://www.youtube.com/embed/nAmC7SoVLd8",
+      duration: "46:06",
       completed: false,
       description: "Advanced RAG patterns with LangChain — Part 2"
     },
     {
-      id: "6-13",
+      id: "6-8",
       title: "Prompt Engineering",
-      videoUrl: "",
-      duration: "00:00",
+      videoUrl: "https://www.youtube.com/embed/FQNUkIxzrpo",
+      duration: "16:45",
       completed: false,
       description: "Zero-shot, few-shot, chain-of-thought prompting techniques"
     }
@@ -831,7 +785,7 @@ export const courseData = {
       id: "7-1",
       title: "Advanced RAG",
       videoUrl: "https://www.youtube.com/embed/K1F8BIgcoNk",
-      duration: "55:00",
+      duration: "13:38",
       completed: false,
       description: "Advanced Retrieval-Augmented Generation techniques"
     },
@@ -839,7 +793,7 @@ export const courseData = {
       id: "7-2",
       title: "LLM Internals",
       videoUrl: "https://www.youtube.com/embed/zjkBMFhNj_g",
-      duration: "62:30",
+      duration: "38:34",
       completed: false,
       description: "Understanding Large Language Model architecture internals"
     },
@@ -847,7 +801,7 @@ export const courseData = {
       id: "7-3",
       title: "Fine-Tuning (LoRA/PEFT)",
       videoUrl: "https://www.youtube.com/embed/TjDytm85d78",
-      duration: "58:15",
+      duration: "18:34",
       completed: false,
       description: "Parameter-efficient fine-tuning with LoRA and PEFT"
     },
@@ -855,7 +809,7 @@ export const courseData = {
       id: "7-4",
       title: "LLM Evaluation",
       videoUrl: "https://www.youtube.com/embed/Us5ZFp16PaU",
-      duration: "48:45",
+      duration: "15:35",
       completed: false,
       description: "Evaluating LLM performance and benchmarks"
     },
@@ -863,7 +817,7 @@ export const courseData = {
       id: "7-5",
       title: "ReAct Framework",
       videoUrl: "https://www.youtube.com/embed/WBgI9ce_7wM",
-      duration: "52:20",
+      duration: "6:49",
       completed: false,
       description: "Reasoning and Acting framework for LLM agents"
     }
