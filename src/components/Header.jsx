@@ -3,6 +3,7 @@ import { FiArrowLeft, FiBell, FiMoon, FiSun, FiX, FiLogOut, FiUser, FiBookOpen }
 import { courseData } from '../data/courseData';
 import { useAuth } from '../contexts/AuthContext';
 import ProfileModal from './ProfileModal';
+import NotificationBell from './NotificationBell';
 
 const Header = ({ isCollapsed, currentLesson, darkMode, toggleDarkMode }) => {
   const [profileOpen, setProfileOpen] = useState(false);
@@ -58,6 +59,9 @@ const Header = ({ isCollapsed, currentLesson, darkMode, toggleDarkMode }) => {
           >
             {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
           </button>
+
+          {/* Notification Bell */}
+          <NotificationBell darkMode={darkMode} />
 
           {/* Avatar — opens Profile Modal */}
           <button

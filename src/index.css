@@ -183,3 +183,21 @@ body.dark {
 /* ── Transition helpers ───────────────────────────── */
 .transition-sidebar { transition: width 0.3s cubic-bezier(0.4,0,0.2,1); }
 .transition-main    { transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1); }
+
+/* ── Notification panel animation ─────────────────── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+.animate-slideDown {
+  animation: slideDown 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Line-clamp utility (message preview) ─────────── */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+

@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { FiSearch, FiEdit2, FiTrash2, FiX, FiCheck, FiLogOut, FiEye, FiEyeOff, FiUsers, FiRefreshCw, FiKey } from 'react-icons/fi';
+import { FiSearch, FiEdit2, FiTrash2, FiX, FiCheck, FiLogOut, FiEye, FiEyeOff, FiUsers, FiRefreshCw, FiKey, FiBell } from 'react-icons/fi';
 import logo from '../assets/logo.png';
 import { API_URL } from '../utils/api';
+import AdminNotifications from '../components/AdminNotifications';
+
+
 
 /* ─── helpers ───────────────────────────────────────────────── */
 const ADMIN_TOKEN_KEY = 'dsm_admin_token';
@@ -236,6 +239,7 @@ const AdminDashboard = () => {
   const [showAdminPassModal, setShowAdminPassModal] = useState(false);
   const [visiblePasswords, setVisiblePasswords] = useState({});
   const [deleteConfirm, setDeleteConfirm] = useState(null);
+  const [activeTab, setActiveTab] = useState('users'); // 'users' | 'notifications'
 
   const fetchUsers = useCallback(async (q = '') => {
     if (!token) return;
@@ -325,6 +329,36 @@ const AdminDashboard = () => {
         </div>
       </header>
 
+      {/* Tab Navigation */}
+      <div className="border-b border-slate-700/60 bg-slate-900 sticky top-[73px] z-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex gap-1 pt-2">
+          <button
+            onClick={() => setActiveTab('users')}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-t-xl transition-colors ${
+              activeTab === 'users'
+                ? 'bg-slate-800 text-white border-b-2 border-blue-500'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+            }`}
+          >
+            <FiUsers size={14} /> Students
+          </button>
+          <button
+            onClick={() => setActiveTab('notifications')}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-t-xl transition-colors ${
+              activeTab === 'notifications'
+                ? 'bg-slate-800 text-white border-b-2 border-blue-500'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+            }`}
+          >
+            <FiBell size={14} /> Notifications
+          </button>
+        </div>
+      </div>
+
+      {/* Tab content */}
+      {activeTab === 'notifications' ? (
+        <AdminNotifications adminToken={token} />
+      ) : (
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
         {/* Search bar */}
         <div className="relative mb-6 max-w-md">
@@ -424,6 +458,7 @@ const AdminDashboard = () => {
           </div>
         )}
       </main>
+      )} {/* end tab content */}
 
       {/* Edit Modal */}
       {editUser && (

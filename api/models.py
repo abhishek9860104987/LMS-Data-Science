@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Text, JSON
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Text, JSON, UniqueConstraint
 from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
 from .database import Base
@@ -32,6 +32,7 @@ class User(Base):
     progress = relationship("UserProgress", back_populates="user", uselist=False, cascade="all, delete-orphan")
     bookmarks = relationship("Bookmark", back_populates="user", cascade="all, delete-orphan")
     recently_watched = relationship("RecentlyWatched", back_populates="user", cascade="all, delete-orphan")
+    notification_reads = relationship("NotificationRead", back_populates="user", cascade="all, delete-orphan")
 
 class Course(Base):
     __tablename__ = "courses"
@@ -99,3 +100,56 @@ class RecentlyWatched(Base):
     watched_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
     user = relationship("User", back_populates="recently_watched")
+
+
+# ── Notification Models ──────────────────────────────────────────────────────
+
+class Notification(Base):
+    """
+    One row per notification.
+    recipient_type='ALL'  → visible to every student (no per-user duplication).
+    recipient_type='USER' → visible only to recipient_user_id.
+    """
+    __tablename__ = "notifications"
+
+    id                 = Column(Integer, primary_key=True, index=True)
+    title              = Column(String(200), nullable=False)
+    message            = Column(Text, nullable=False)
+    notif_type         = Column(String(30), nullable=False, default="GENERAL")
+    recipient_type     = Column(String(10), nullable=False, default="ALL")  # 'ALL' | 'USER'
+    recipient_user_id  = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=True)
+    attachment_url     = Column(String(500), nullable=True)
+    external_link      = Column(String(500), nullable=True)
+    is_pinned          = Column(Boolean, default=False, nullable=False)
+    expires_at         = Column(DateTime, nullable=True)
+    created_at         = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at         = Column(DateTime,
+                                default=lambda: datetime.now(timezone.utc),
+                                onupdate=lambda: datetime.now(timezone.utc))
+
+    recipient_user = relationship("User", foreign_keys=[recipient_user_id])
+    reads          = relationship("NotificationRead", back_populates="notification",
+                                  cascade="all, delete-orphan")
+
+
+class NotificationRead(Base):
+    """
+    Lightweight read-receipt table.
+    One row is created the first time a user reads a specific notification.
+    The unique constraint guarantees at most one receipt per (notification, user) pair.
+    """
+    __tablename__ = "notification_reads"
+    __table_args__ = (
+        UniqueConstraint("notification_id", "user_id", name="uq_notif_read"),
+    )
+
+    id              = Column(Integer, primary_key=True, index=True)
+    notification_id = Column(Integer, ForeignKey("notifications.id", ondelete="CASCADE"),
+                             nullable=False, index=True)
+    user_id         = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"),
+                             nullable=False, index=True)
+    read_at         = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+    notification = relationship("Notification", back_populates="reads")
+    user         = relationship("User", back_populates="notification_reads")
+
