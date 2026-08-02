@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F8FAFC;
+  color: #1e293b;
+}
+
+body.dark {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+/* ── Custom Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+.dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
+
+/* ── Sidebar thin scrollbar ───────────────────────── */
+.sidebar-scroll::-webkit-scrollbar { width: 3px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+/* ── Utility animations ───────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: var(--progress-width); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.3); }
+  50%       { box-shadow: 0 0 0 6px rgba(37,99,235,0); }
+}
+
+.animate-fadeIn    { animation: fadeIn 0.35s ease forwards; }
+.animate-slideIn   { animation: slideInRight 0.3s ease forwards; }
+.animate-progressFill { animation: progressFill 1s ease forwards; }
+.animate-pulse-glow   { animation: pulse-glow 2s infinite; }
+
+/* ── Video container ratio ────────────────────────── */
+.video-responsive {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.video-responsive iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* ── Glassmorphism card ───────────────────────────── */
+.glass-card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+.dark .glass-card {
+  background: rgba(30,41,59,0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Lesson item hover ────────────────────────────── */
+.lesson-item {
+  position: relative;
+  transition: all 0.2s ease;
+}
+.lesson-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: #2563EB;
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+.lesson-item.active::before {
+  transform: scaleY(1);
+}
+
+/* ── Sidebar nav active glow ──────────────────────── */
+.nav-active {
+  position: relative;
+  background: rgba(255,255,255,0.12) !important;
+}
+.nav-active::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 4px; bottom: 4px;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: #60a5fa;
+}
+
+/* ── Week header active (amber tint like reference) ── */
+.week-active-bg {
+  background-color: #fffbeb !important;
+  border-left: 3px solid #f59e0b;
+}
+.dark .week-active-bg {
+  background-color: rgba(245,158,11,0.08) !important;
+  border-left: 3px solid #f59e0b;
+}
+
+/* ── Tooltip ──────────────────────────────────────── */
+.tooltip-wrapper { position: relative; }
+.tooltip-wrapper .tooltip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 100;
+}
+.tooltip-wrapper:hover .tooltip { opacity: 1; }
+
+/* ── Focus ring ───────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+/* ── Transition helpers ───────────────────────────── */
+.transition-sidebar { transition: width 0.3s cubic-bezier(0.4,0,0.2,1); }
+.transition-main    { transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1); }

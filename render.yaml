@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: celebaledu-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false          # Set manually in Render dashboard (your Neon URL)
+      - key: SECRET_KEY
+        sync: false          # Set manually in Render dashboard
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 43200
+      - key: ALLOWED_ORIGINS
+        sync: false          # Set to your Netlify URL e.g. https://yourapp.netlify.app
