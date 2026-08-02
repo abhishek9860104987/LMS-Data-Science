@@ -5,7 +5,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  VITE_API_URL = ""
+  # VITE_API_URL is set in the Netlify dashboard → Site settings → Environment variables
+  # DO NOT set it here — a blank value here overrides the dashboard value at build time
 
 # SPA fallback — redirect all paths to index.html
 [[redirects]]
