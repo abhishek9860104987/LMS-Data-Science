@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   FiCheckCircle, FiClock, FiChevronLeft, FiChevronRight,
-  FiBookOpen, FiCheck
+  FiBookOpen, FiCheck, FiExternalLink
 } from 'react-icons/fi';
 
 const VideoPlayer = ({
@@ -17,7 +17,7 @@ const VideoPlayer = ({
 }) => {
   const [key, setKey] = useState(lesson?.id ?? '');
 
-  // Re-mount iframe on lesson change for a clean load
+  // Re-mount iframe / view on lesson change for a clean load
   useEffect(() => {
     setKey(lesson?.id ?? '');
   }, [lesson?.id]);
@@ -35,9 +35,12 @@ const VideoPlayer = ({
     );
   }
 
+  const isReadingModule = lesson.lessonType === 'reading' || lesson.type === 'reading' || !!lesson.readingUrl || (lesson.videoUrl && !lesson.videoUrl.includes('youtube.com/embed/'));
+  const readingTargetUrl = lesson.readingUrl || lesson.videoUrl;
+
   // Clean embed URL: strip any existing params, add our params
-  const rawUrl  = lesson.videoUrl.split('?')[0];
-  const embedUrl = `${rawUrl}?rel=0&modestbranding=1&enablejsapi=1`;
+  const rawUrl  = lesson.videoUrl ? lesson.videoUrl.split('?')[0] : '';
+  const embedUrl = rawUrl ? `${rawUrl}?rel=0&modestbranding=1&enablejsapi=1` : '';
 
   return (
     <div key={key} className="animate-fadeIn flex flex-col gap-5">
@@ -48,9 +51,16 @@ const VideoPlayer = ({
         ${darkMode ? 'bg-gray-800 border border-gray-700/60' : 'bg-white border border-gray-100'}
         shadow-sm
       `}>
-        <h2 className={`text-sm font-semibold truncate ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-          {lesson.title}
-        </h2>
+        <div className="flex items-center gap-2 min-w-0">
+          {isReadingModule && (
+            <span className="flex-shrink-0 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">
+              Reading Module
+            </span>
+          )}
+          <h2 className={`text-sm font-semibold truncate ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            {lesson.title}
+          </h2>
+        </div>
         {(isCompleted || lesson.completed) && (
           <span className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
             <FiCheckCircle size={13} />
@@ -59,22 +69,51 @@ const VideoPlayer = ({
         )}
       </div>
 
-      {/* ── YouTube iframe ────────────────────────── */}
-      <div className={`
-        rounded-2xl overflow-hidden shadow-xl
-        ${darkMode ? 'ring-1 ring-gray-700/60' : 'ring-1 ring-gray-200/80'}
-      `}>
-        <div className="video-responsive">
-          <iframe
-            key={embedUrl}
-            src={embedUrl}
-            title={lesson.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            loading="lazy"
-          />
+      {/* ── Media Content Area: Video Iframe or Reading Module Card ── */}
+      {isReadingModule ? (
+        <div className={`
+          rounded-2xl p-6 sm:p-10 shadow-xl border flex flex-col items-center justify-center text-center gap-5
+          ${darkMode ? 'bg-gradient-to-b from-slate-800 to-slate-900 border-gray-700/60' : 'bg-gradient-to-b from-blue-50/50 to-white border-blue-100'}
+        `}>
+          <div className="w-16 h-16 rounded-2xl bg-blue-600/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shadow-inner">
+            <FiBookOpen size={32} />
+          </div>
+          <div className="max-w-xl">
+            <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+              {lesson.title}
+            </h3>
+            <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              {lesson.description || 'Access the official reading material and documentation for this lesson.'}
+            </p>
+          </div>
+          {readingTargetUrl && (
+            <a
+              href={readingTargetUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all duration-200 hover:scale-105 active:scale-95"
+            >
+              Open Reading Material <FiExternalLink size={16} />
+            </a>
+          )}
         </div>
-      </div>
+      ) : (
+        <div className={`
+          rounded-2xl overflow-hidden shadow-xl
+          ${darkMode ? 'ring-1 ring-gray-700/60' : 'ring-1 ring-gray-200/80'}
+        `}>
+          <div className="video-responsive">
+            <iframe
+              key={embedUrl}
+              src={embedUrl}
+              title={lesson.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+        </div>
+      )}
 
       {/* ── Lesson meta + actions ─────────────────── */}
       <div className={`
