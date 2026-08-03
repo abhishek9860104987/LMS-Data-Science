@@ -8,7 +8,7 @@ import {
 
 const LessonItem = ({ lesson, isSelected, onSelect, darkMode }) => {
   const isAssignment = lesson.title.toLowerCase().includes('assignment');
-  const isReadingMaterial = lesson.videoUrl.includes('geeksforgeeks.org');
+  const isReadingMaterial = lesson.lessonType === 'reading' || lesson.type === 'reading' || !!lesson.readingUrl || (lesson.videoUrl && !lesson.videoUrl.includes('youtube.com/embed/'));
 
   return (
     <button

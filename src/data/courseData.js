@@ -831,7 +831,7 @@ export const courseData = {
       lessons: [
         {
           id: "8-1",
-          title: "LangGraph Overview",
+          title: "LangGraph ",
           readingUrl: "https://docs.langchain.com/oss/python/langgraph/overview",
           lessonType: "reading",
           duration: "10 min read",
