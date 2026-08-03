@@ -265,11 +265,7 @@ const Dashboard = () => {
         toggleDarkMode={() => setDarkMode(d => !d)}
       />
       <div
-        className="transition-all duration-300 ease-in-out"
-        style={{
-          marginLeft: `${sidebarW}px`,
-          paddingTop: '72px',
-        }}
+        className={`transition-all duration-300 ease-in-out pt-[72px] ml-0 ${sidebarCollapsed ? 'lg:ml-[72px]' : 'lg:ml-64'}`}
       >
         {activeTab === 'Courses Enrolled' ? (
           <CoursesEnrolled 
@@ -279,8 +275,8 @@ const Dashboard = () => {
           />
         ) : (
           <>
-            <div className="flex h-[calc(100vh-72px)]">
-              <main className="flex-1 overflow-y-auto custom-scrollbar px-4 md:px-6 py-5">
+            <div className="flex flex-col lg:flex-row lg:h-[calc(100vh-72px)] overflow-x-hidden">
+              <main className="flex-1 lg:overflow-y-auto custom-scrollbar px-3 sm:px-6 py-4 sm:py-5">
                 <div className="max-w-4xl mx-auto space-y-5">
                   <VideoPlayer
                     lesson={selectedLesson}

@@ -177,7 +177,7 @@ export default function NotificationBell({ darkMode }) {
           ref={panelRef}
           className={`
             absolute right-0 top-[calc(100%+8px)] z-50
-            w-[360px] sm:w-[400px]
+            w-[calc(100vw-1.5rem)] sm:w-[380px] max-w-[400px]
             rounded-2xl shadow-2xl overflow-hidden
             border
             ${darkMode

@@ -29,13 +29,13 @@ const Header = ({ isCollapsed, currentLesson, darkMode, toggleDarkMode }) => {
         `}
       >
         {/* Left: title */}
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center gap-3 min-w-0 pl-12 lg:pl-0">
           <div className="min-w-0">
-            <h1 className={`font-bold text-base sm:text-lg leading-tight truncate ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h1 className={`font-bold text-sm sm:text-lg leading-tight truncate ${darkMode ? 'text-white' : 'text-gray-900'}`}>
               {courseData.courseTitle}
             </h1>
             {currentLesson && (
-              <p className={`text-xs truncate ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+              <p className={`text-[11px] sm:text-xs truncate ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                 {currentLesson.title}
               </p>
             )}

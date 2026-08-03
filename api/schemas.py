@@ -4,8 +4,8 @@ from datetime import datetime
 
 class UserCreate(BaseModel):
     username: str
+    email: EmailStr
     password: str
-    email: Optional[EmailStr] = None
 
 class UserLogin(BaseModel):
     username: str
