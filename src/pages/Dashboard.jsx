@@ -131,8 +131,10 @@ const Dashboard = () => {
 
   /* ── Lesson selection ───────────────────────────────────── */
   const handleSelectLesson = useCallback((lesson) => {
-    if (lesson.videoUrl.includes("geeksforgeeks.org")) {
-      window.open(lesson.videoUrl, "_blank", "noopener,noreferrer");
+    if (!lesson.videoUrl || !lesson.videoUrl.includes("youtube.com/embed/")) {
+      if (lesson.videoUrl) {
+        window.open(lesson.videoUrl, "_blank", "noopener,noreferrer");
+      }
       return;
     }
 

@@ -829,13 +829,14 @@ export const courseData = {
       id: 8,
       title: "Week 8 - Agentic AI",
       lessons: [
-        {
-          id: "8-1",
-          title: "LangGraph Overview",
-          videoUrl: "https://docs.langchain.com/oss/python/langgraph/overview",
-          completed: false,
-          description: "Building multi-agent stateful workflows with LangGraph"
-        },
+     {
+  id: "8-1",
+  title: "LangGraph Overview",
+  readingUrl: "https://docs.langchain.com/oss/python/langgraph/overview",
+  type: "reading",
+  completed: false,
+  description: "Building multi-agent stateful workflows with LangGraph"
+}
         {
           id: "8-2",
           title: "AutoGen, Tool Use and Function Calling",
