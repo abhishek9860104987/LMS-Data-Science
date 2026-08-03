@@ -6,8 +6,9 @@ import {
 import logo from '../assets/logo.png';
 
 const navItems = [
-  { icon: FiGrid,     label: 'Dashboard' },
-  { icon: FiBookOpen, label: 'Courses Enrolled' },
+  { icon: FiGrid,       label: 'Dashboard' },
+  { icon: FiBookOpen,   label: 'Courses Enrolled' },
+  { icon: FiHelpCircle, label: 'Requests & Queries' },
 ];
 
 const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen, darkMode, activeTab, setActiveTab }) => {

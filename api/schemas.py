@@ -145,3 +145,47 @@ class AdminNotificationResponse(BaseModel):
 class UnreadCountResponse(BaseModel):
     count: int
 
+
+# ── Course Request & Query Schemas ──────────────────────────────────────────
+
+REQUEST_TYPES = {"COURSE_REQUEST", "QUERY"}
+REQUEST_STATUSES = {"PENDING", "IN_REVIEW", "PLANNED", "RESOLVED", "REJECTED"}
+
+class CourseRequestCreate(BaseModel):
+    request_type: str = "COURSE_REQUEST"
+    title: str
+    description: str
+
+class CourseRequestResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    user_id: int
+    request_type: str
+    title: str
+    description: str
+    status: str
+    admin_response: Optional[str] = None
+    created_at: datetime
+    updated_at: Optional[datetime] = None
+
+class AdminCourseRequestResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    user_id: int
+    username: Optional[str] = None
+    user_email: Optional[str] = None
+    request_type: str
+    title: str
+    description: str
+    status: str
+    admin_response: Optional[str] = None
+    created_at: datetime
+    updated_at: Optional[datetime] = None
+
+class AdminCourseRequestUpdate(BaseModel):
+    status: Optional[str] = None
+    admin_response: Optional[str] = None
+
+

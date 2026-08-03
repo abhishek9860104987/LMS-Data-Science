@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { FiSearch, FiEdit2, FiTrash2, FiX, FiCheck, FiLogOut, FiEye, FiEyeOff, FiUsers, FiRefreshCw, FiKey, FiBell } from 'react-icons/fi';
+import { FiSearch, FiEdit2, FiTrash2, FiX, FiCheck, FiLogOut, FiEye, FiEyeOff, FiUsers, FiRefreshCw, FiKey, FiBell, FiHelpCircle } from 'react-icons/fi';
 import logo from '../assets/logo.png';
 import { API_URL } from '../utils/api';
 import AdminNotifications from '../components/AdminNotifications';
+import AdminCourseRequests from '../components/AdminCourseRequests';
 
 
 
@@ -352,12 +353,24 @@ const AdminDashboard = () => {
           >
             <FiBell size={14} /> Notifications
           </button>
+          <button
+            onClick={() => setActiveTab('requests')}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-t-xl transition-colors ${
+              activeTab === 'requests'
+                ? 'bg-slate-800 text-white border-b-2 border-blue-500'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+            }`}
+          >
+            <FiHelpCircle size={14} /> Course Requests & Queries
+          </button>
         </div>
       </div>
 
       {/* Tab content */}
       {activeTab === 'notifications' ? (
         <AdminNotifications adminToken={token} />
+      ) : activeTab === 'requests' ? (
+        <AdminCourseRequests adminToken={token} />
       ) : (
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
         {/* Search bar */}

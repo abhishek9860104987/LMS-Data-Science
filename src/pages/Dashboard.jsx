@@ -5,6 +5,7 @@ import CourseContent from '../components/CourseContent';
 import VideoPlayer from '../components/VideoPlayer';
 import RecentlyWatched from '../components/RecentlyWatched';
 import CoursesEnrolled from './CoursesEnrolled';
+import CourseRequestModal from '../components/CourseRequestModal';
 import SEOHead from '../components/SEOHead';
 import { useAuth } from '../contexts/AuthContext';
 import { API_URL } from '../utils/api';
@@ -33,10 +34,11 @@ const Dashboard = () => {
   /* Dark mode */
   const [darkMode, setDarkMode] = useState(() => loadJSON(LS_DARK, false));
 
-  /* Sidebar collapse */
+  /* Sidebar collapse & modals */
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileOpen,       setMobileOpen]       = useState(false);
   const [activeTab,        setActiveTab]        = useState('Dashboard');
+  const [requestModalOpen, setRequestModalOpen] = useState(false);
 
   /* Selected lesson */
   const [selectedLesson, setSelectedLesson] = useState(() => {
@@ -121,6 +123,13 @@ const Dashboard = () => {
     document.body.classList.toggle('dark', darkMode);
     localStorage.setItem(LS_DARK, JSON.stringify(darkMode));
   }, [darkMode]);
+
+  useEffect(() => {
+    if (activeTab === 'Requests & Queries') {
+      setRequestModalOpen(true);
+      setActiveTab('Dashboard');
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     if (selectedLesson) {
@@ -328,6 +337,13 @@ const Dashboard = () => {
           </>
         )}
       </div>
+
+      {/* Course Request & Query Modal */}
+      <CourseRequestModal
+        isOpen={requestModalOpen}
+        onClose={() => setRequestModalOpen(false)}
+        darkMode={darkMode}
+      />
     </div>
   );
 };

@@ -33,6 +33,7 @@ class User(Base):
     bookmarks = relationship("Bookmark", back_populates="user", cascade="all, delete-orphan")
     recently_watched = relationship("RecentlyWatched", back_populates="user", cascade="all, delete-orphan")
     notification_reads = relationship("NotificationRead", back_populates="user", cascade="all, delete-orphan")
+    course_requests = relationship("CourseRequest", back_populates="user", cascade="all, delete-orphan")
 
 class Course(Base):
     __tablename__ = "courses"
@@ -152,4 +153,28 @@ class NotificationRead(Base):
 
     notification = relationship("Notification", back_populates="reads")
     user         = relationship("User", back_populates="notification_reads")
+
+
+# ── Course Request & Query Models ──────────────────────────────────────────
+
+class CourseRequest(Base):
+    """
+    Stores course demand requests and queries submitted by students.
+    request_type: 'COURSE_REQUEST' | 'QUERY'
+    status: 'PENDING' | 'IN_REVIEW' | 'PLANNED' | 'RESOLVED' | 'REJECTED'
+    """
+    __tablename__ = "course_requests"
+
+    id             = Column(Integer, primary_key=True, index=True)
+    user_id        = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    request_type   = Column(String(30), nullable=False, default="COURSE_REQUEST")
+    title          = Column(String(200), nullable=False)
+    description    = Column(Text, nullable=False)
+    status         = Column(String(30), nullable=False, default="PENDING")
+    admin_response = Column(Text, nullable=True)
+    created_at     = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at     = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    user = relationship("User", back_populates="course_requests")
+
 
