@@ -131,13 +131,6 @@ const Dashboard = () => {
 
   /* ── Lesson selection ───────────────────────────────────── */
   const handleSelectLesson = useCallback((lesson) => {
-    const targetUrl = lesson.readingUrl || lesson.videoUrl;
-    const isYouTube = targetUrl && targetUrl.includes("youtube.com/embed/");
-
-    if (!isYouTube && targetUrl) {
-      window.open(targetUrl, "_blank", "noopener,noreferrer");
-    }
-
     setSelectedLesson(lesson);
     setMobileOpen(false);
 
