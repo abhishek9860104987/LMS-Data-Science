@@ -10,7 +10,7 @@
 const PLACEHOLDER = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // replace with real links
 
 export const courseData = {
-  courseTitle: "Data Science001",
+  courseTitle: "Data Science Master",
   courseDescription: "Complete Data Science with Machine Learning, Deep Learning, and AI",
   weeks: [
 
@@ -831,25 +831,24 @@ export const courseData = {
       lessons: [
         {
           id: "8-1",
-          title: "LangGraph",
-          videoUrl: PLACEHOLDER,
-          duration: "00:00",
+          title: "LangGraph Overview",
+          videoUrl: "https://docs.langchain.com/oss/python/langgraph/overview",
           completed: false,
-          description: "Building stateful multi-agent systems with LangGraph"
+          description: "Building multi-agent stateful workflows with LangGraph"
         },
         {
           id: "8-2",
           title: "AutoGen, Tool Use and Function Calling",
-          videoUrl: PLACEHOLDER,
-          duration: "00:00",
+          videoUrl:"https://www.youtube.com/embed/yDpV_jgO93c",
+          duration: "04:04:06",
           completed: false,
           description: "Frameworks for autonomous agents, tool use, and function calling"
         },
         {
           id: "8-3",
           title: "Agent Evaluation",
-          videoUrl: PLACEHOLDER,
-          duration: "00:00",
+          videoUrl: "https://www.youtube.com/embed/TjDytm85d78",
+          duration: "18:35",
           completed: false,
           description: "Evaluating the performance of agentic AI systems"
         }
