@@ -40,7 +40,7 @@ const Dashboard = () => {
   /* Sidebar collapse & modals */
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileOpen,       setMobileOpen]       = useState(false);
-  const [activeTab,        setActiveTab]        = useState('Dashboard');
+  const [activeTab,        setActiveTab]        = useState('Courses Enrolled');
   const [requestModalOpen, setRequestModalOpen] = useState(false);
 
   /* Current active course */
