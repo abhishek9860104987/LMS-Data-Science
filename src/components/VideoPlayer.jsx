@@ -42,6 +42,16 @@ const VideoPlayer = ({
   const rawUrl  = lesson.videoUrl ? lesson.videoUrl.split('?')[0] : '';
   const embedUrl = rawUrl ? `${rawUrl}?rel=0&modestbranding=1&enablejsapi=1` : '';
 
+  // Direct YouTube watch URL for external opening
+  const youtubeWatchUrl = (() => {
+    const url = lesson.videoUrl || '';
+    if (url.includes('youtube.com/embed/')) {
+      const id = url.split('youtube.com/embed/')[1]?.split('?')[0];
+      if (id) return `https://www.youtube.com/watch?v=${id}`;
+    }
+    return url;
+  })();
+
   return (
     <div key={key} className="animate-fadeIn flex flex-col gap-5">
 
@@ -139,8 +149,23 @@ const VideoPlayer = ({
             )}
           </div>
 
-          {/* Action Button: Mark Complete or Mark as Unread */}
+          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3">
+            {!isReadingModule && youtubeWatchUrl && youtubeWatchUrl.includes('youtube.com') && (
+              <a
+                href={youtubeWatchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex-shrink-0 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-semibold transition-all duration-200 shadow-sm active:scale-95 ${
+                  darkMode
+                    ? 'border-red-500/40 text-red-400 bg-red-500/10 hover:bg-red-500/20'
+                    : 'border-red-200 text-red-600 bg-red-50 hover:bg-red-100'
+                }`}
+              >
+                Watch on YouTube <FiExternalLink size={14} />
+              </a>
+            )}
+
             {isCompleted || lesson.completed ? (
               <button
                 id={`mark-unread-${lesson.id}`}
