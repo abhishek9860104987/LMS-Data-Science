@@ -880,7 +880,7 @@ export const dataEngineeringCourse = {
       id: "de-1-1",
       title: "Advanced SQL & Complex Queries",
       videoUrl: "https://www.youtube.com/embed/t2_Q2BRzeEE",
-      duration: "00:00",
+      duration: "01:22:19",
       completed: false,
       description: "Mastering complex JOINs, subqueries, CTEs, and SQL execution order for data engineers."
     },
@@ -888,7 +888,7 @@ export const dataEngineeringCourse = {
       id: "de-1-2",
       title: "SQL Window Functions Deep Dive",
       videoUrl: "https://www.youtube.com/embed/qVyvmzFxF_o",
-      duration: "00:00",
+      duration: "41:46",
       completed: false,
       description: "ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD, LAG, and sliding frame aggregations."
     },
@@ -896,7 +896,7 @@ export const dataEngineeringCourse = {
       id: "de-1-3",
       title: "Database Indexing & Query Optimization",
       videoUrl: "https://www.youtube.com/embed/ahNqJ6-FR5o",
-      duration: "00:00",
+      duration: "18:43",
       completed: false,
       description: "B-Tree indexes, Hash indexes, Query Execution Plans, EXPLAIN ANALYZE, and tuning slow queries."
     },
@@ -904,7 +904,7 @@ export const dataEngineeringCourse = {
       id: "de-1-4",
       title: "ACID Properties & Database Transactions",
       videoUrl: "https://www.youtube.com/embed/N8eK-maHqVE",
-      duration: "00:00",
+      duration: "17:50",
       completed: false,
       description: "Atomicity, Consistency, Isolation levels, Durability, and concurrency control in Relational DBs."
     },
@@ -912,7 +912,7 @@ export const dataEngineeringCourse = {
       id: "de-1-5",
       title: "Normalization & Database Design",
       videoUrl: "https://www.youtube.com/embed/suKHq3ZLPmU",
-      duration: "00:00",
+      duration: "21:13",
       completed: false,
       description: "Learn 1NF, 2NF, 3NF, BCNF, schema design, and relational database modeling."
     },
@@ -920,7 +920,7 @@ export const dataEngineeringCourse = {
       id: "de-1-6",
       title: "SQL Interview Questions & Practice",
       videoUrl: "https://www.youtube.com/embed/E9WGC0SLPVs",
-      duration: "00:00",
+      duration: "36:56",
       completed: false,
       description: "Practice advanced SQL interview questions and real-world query solving."
     }
@@ -934,7 +934,7 @@ export const dataEngineeringCourse = {
       id: "de-2-1",
       title: "OLTP vs OLAP Architecture",
       videoUrl: "https://www.youtube.com/embed/TDKoTItCVMU",
-      duration: "00:00",
+      duration: "54:50",
       completed: false,
       description: "Key differences between transactional databases and analytical data warehouses."
     },
@@ -942,7 +942,7 @@ export const dataEngineeringCourse = {
       id: "de-2-2",
       title: "Dimensional Modeling: Star vs Snowflake Schema",
       videoUrl: "https://www.youtube.com/embed/cMUJFau5Wvg",
-      duration: "00:00",
+      duration: "40:38",
       completed: false,
       description: "Fact tables, Dimension tables, surrogate keys, and schema design principles."
     },
@@ -950,7 +950,7 @@ export const dataEngineeringCourse = {
       id: "de-2-3",
       title: "Slowly Changing Dimensions (SCD Types 0-3)",
       videoUrl: "https://www.youtube.com/embed/FKSSOpQe5Jc",
-      duration: "00:00",
+      duration: "17:44",
       completed: false,
       description: "Handling historical data changes using SCD Type 1, Type 2, and Type 3 strategies."
     },
@@ -958,7 +958,7 @@ export const dataEngineeringCourse = {
       id: "de-2-4",
       title: "ETL vs ELT Paradigm Shift",
       videoUrl: "https://www.youtube.com/embed/aY7z4HcHm5M",
-      duration: "00:00",
+      duration: "40:18",
       completed: false,
       description: "Traditional Extract-Transform-Load vs Modern Extract-Load-Transform in Cloud Warehouses."
     },
@@ -966,50 +966,54 @@ export const dataEngineeringCourse = {
       id: "de-2-5",
       title: "Data Warehousing Best Practices",
       videoUrl: "https://www.youtube.com/embed/C72qtLE9eVE",
-      duration: "00:00",
+      duration: "08:08",
       completed: false,
       description: "Best practices for designing scalable, maintainable, and high-performance data warehouse solutions."
     }
   ]
 },
+   {
+  id: 3,
+  title: "Week 3 - Distributed Systems & PySpark",
+  lessons: [
     {
-      id: 3,
-      title: "Week 3 - Distributed Systems & PySpark",
-      lessons: [
-        {
-          id: "de-3-1",
-          title: "Big Data Fundamentals & Hadoop/HDFS",
-          videoUrl: "https://www.youtube.com/embed/g3yqUvhz7m0",
-          duration: "45:00",
-          completed: false,
-          description: "Distributed storage, block size, NameNode, DataNodes, and MapReduce overview."
-        },
-        {
-          id: "de-3-2",
-          title: "Apache Spark Core & PySpark Architecture",
-          videoUrl: "https://www.youtube.com/embed/_C8kWso474U",
-          duration: "1:15:30",
-          completed: false,
-          description: "Spark Driver, Workers, Executors, RDDs, DataFrames, and Lazy Evaluation."
-        },
-        {
-          id: "de-3-3",
-          title: "PySpark DataFrames & Transformations",
-          videoUrl: "https://www.youtube.com/embed/cYBkW8pWdZg",
-          duration: "58:40",
-          completed: false,
-          description: "Filtering, aggregations, joins, windowing, and UDFs in PySpark."
-        },
-        {
-          id: "de-3-4",
-          title: "Spark Optimization: Partitioning & Shuffling",
-          videoUrl: "https://www.youtube.com/embed/d2J7s4-hJ_Y",
-          duration: "40:20",
-          completed: false,
-          description: "Broadcasting, repartitioning, coalesce, cache/persist, and avoiding data skew."
-        }
-      ]
+      id: "de-3-1",
+      title: "Big Data Fundamentals & Hadoop/HDFS",
+      videoUrl: "https://www.youtube.com/embed/g3yqUvhz7m0",
+      watchUrl: "https://www.youtube.com/watch?v=g3yqUvhz7m0",
+      duration: "45:00",
+      completed: false,
+      description: "Distributed storage, block size, NameNode, DataNodes, and MapReduce overview."
     },
+    {
+      id: "de-3-2",
+      title: "Apache Spark Core & PySpark Architecture",
+      videoUrl: "https://www.youtube.com/embed/_C8kWso474U",
+      watchUrl: "https://www.youtube.com/watch?v=_C8kWso474U",
+      duration: "1:15:30",
+      completed: false,
+      description: "Spark Driver, Workers, Executors, RDDs, DataFrames, and Lazy Evaluation."
+    },
+    {
+      id: "de-3-3",
+      title: "PySpark DataFrames & Transformations",
+      videoUrl: "https://www.youtube.com/embed/cYBkW8pWdZg",
+      watchUrl: "https://www.youtube.com/watch?v=cYBkW8pWdZg",
+      duration: "58:40",
+      completed: false,
+      description: "Filtering, aggregations, joins, windowing, and UDFs in PySpark."
+    },
+    {
+      id: "de-3-4",
+      title: "Spark Optimization: Partitioning & Shuffling",
+      videoUrl: "https://www.youtube.com/embed/d2J7s4-hJ_Y",
+      watchUrl: "https://www.youtube.com/watch?v=d2J7s4-hJ_Y",
+      duration: "40:20",
+      completed: false,
+      description: "Broadcasting, repartitioning, coalesce, cache/persist, and avoiding data skew."
+    }
+  ]
+},
    {
   id: 4,
   title: "Week 4 - Workflow Orchestration with Apache Airflow",
@@ -1018,7 +1022,7 @@ export const dataEngineeringCourse = {
       id: "de-4-1",
       title: "Apache Airflow Architecture & Core Concepts",
       videoUrl: "https://www.youtube.com/embed/16BF6cDqLBE",
-      duration: "00:00",
+      duration: "09:06",
       completed: false,
       description: "Scheduler, Webserver, Executor, Workers, DAGs, Tasks, and Operators."
     },
@@ -1026,7 +1030,7 @@ export const dataEngineeringCourse = {
       id: "de-4-2",
       title: "Building Production Airflow DAGs",
       videoUrl: "https://www.youtube.com/embed/ya4298V8Mqo",
-      duration: "00:00",
+      duration: "06:20",
       completed: false,
       description: "PythonOperator, BashOperator, Sensors, Task Dependencies, and XComs."
     },
@@ -1034,7 +1038,7 @@ export const dataEngineeringCourse = {
       id: "de-4-3",
       title: "Airflow Backfilling, SLAs & Catchup",
       videoUrl: "https://www.youtube.com/embed/TJOwP5VhvAo",
-      duration: "00:00",
+      duration: "01:49:09",
       completed: false,
       description: "Managing execution dates, backfilling historical pipeline runs, and alerting."
     },
@@ -1042,7 +1046,7 @@ export const dataEngineeringCourse = {
       id: "de-4-4",
       title: "Airflow Scheduling & Cron Expressions",
       videoUrl: "https://www.youtube.com/embed/ah1XqItWkuc",
-      duration: "00:00",
+      duration: "22:23",
       completed: false,
       description: "Learn scheduling intervals, cron expressions, and DAG execution timing."
     },
@@ -1050,7 +1054,7 @@ export const dataEngineeringCourse = {
       id: "de-4-5",
       title: "Airflow Connections & Variables",
       videoUrl: "https://www.youtube.com/embed/_Ud_7wL24iM",
-      duration: "00:00",
+      duration: "09:04",
       completed: false,
       description: "Configure connections, variables, secrets, and environment management."
     },
@@ -1058,7 +1062,7 @@ export const dataEngineeringCourse = {
       id: "de-4-6",
       title: "Airflow Sensors & Hooks",
       videoUrl: "https://www.youtube.com/embed/W9ymYBsl-J4",
-      duration: "00:00",
+      duration: "21:17",
       completed: false,
       description: "Understand sensors, hooks, and external system integrations."
     },
@@ -1066,7 +1070,7 @@ export const dataEngineeringCourse = {
       id: "de-4-7",
       title: "Airflow Monitoring & Logging",
       videoUrl: "https://www.youtube.com/embed/4v7ffXxOnwU",
-      duration: "00:00",
+      duration: "13:41",
       completed: false,
       description: "Monitor DAG runs, logs, retries, failures, and debugging techniques."
     },
@@ -1074,7 +1078,7 @@ export const dataEngineeringCourse = {
       id: "de-4-8",
       title: "Deploying Airflow Pipelines",
       videoUrl: "https://www.youtube.com/embed/nc4IFKkkfXM",
-      duration: "00:00",
+      duration: "06:34",
       completed: false,
       description: "Deploy Apache Airflow pipelines for production environments."
     },
@@ -1082,7 +1086,7 @@ export const dataEngineeringCourse = {
       id: "de-4-9",
       title: "Airflow Best Practices & Interview Questions",
       videoUrl: "https://www.youtube.com/embed/mFsifcklyrc",
-      duration: "00:00",
+      duration: "09:36",
       completed: false,
       description: "Production best practices, optimization tips, and frequently asked interview questions."
     }
@@ -1096,7 +1100,7 @@ export const dataEngineeringCourse = {
       id: "de-5-1",
       title: "Apache Kafka Architecture & Event Streaming",
       videoUrl: "https://www.youtube.com/embed/49MwmVFiOV0",
-      duration: "00:00",
+      duration: "27:01",
       completed: false,
       description: "Topics, Partitions, Offsets, Producers, Consumer Groups, Brokers, and Kafka architecture fundamentals."
     },
@@ -1104,7 +1108,7 @@ export const dataEngineeringCourse = {
       id: "de-5-2",
       title: "Building Kafka Producers & Consumers in Python",
       videoUrl: "https://www.youtube.com/embed/L0-r7gfPM4Q",
-      duration: "00:00",
+      duration: "53:23",
       completed: false,
       description: "Publishing and consuming real-time event streams using kafka-python and confluent-kafka."
     },
@@ -1112,7 +1116,7 @@ export const dataEngineeringCourse = {
       id: "de-5-3",
       title: "Spark Structured Streaming with Kafka",
       videoUrl: "https://www.youtube.com/embed/KAuIvccwbPY",
-      duration: "00:00",
+      duration: "07:21",
       completed: false,
       description: "Integrating Apache Spark Structured Streaming with Kafka for real-time data processing."
     },
@@ -1120,7 +1124,7 @@ export const dataEngineeringCourse = {
       id: "de-5-4",
       title: "Kafka Interview Questions & Best Practices",
       videoUrl: "https://www.youtube.com/embed/bDhvCp3_lYw",
-      duration: "00:00",
+      duration: "38:36",
       completed: false,
       description: "Kafka deployment, optimization techniques, best practices, and commonly asked interview questions."
     }
@@ -1134,7 +1138,7 @@ export const dataEngineeringCourse = {
       id: "de-6-1",
       title: "Snowflake Architecture & Virtual Warehouses",
       videoUrl: "https://www.youtube.com/embed/ikSovL0SYfE",
-      duration: "00:00",
+      duration: "07:26",
       completed: false,
       description: "Separation of storage and compute, micro-partitions, virtual warehouses, and Time Travel in Snowflake."
     },
@@ -1142,7 +1146,7 @@ export const dataEngineeringCourse = {
       id: "de-6-2",
       title: "Transforming Data with dbt (data build tool)",
       videoUrl: "https://www.youtube.com/embed/EB8lfdxpirM",
-      duration: "00:00",
+      duration: "48:12",
       completed: false,
       description: "Building SQL transformations, models, testing, documentation, and data pipelines using dbt."
     },
@@ -1150,7 +1154,7 @@ export const dataEngineeringCourse = {
       id: "de-6-3",
       title: "Data Lakehouse Architecture (Delta Lake / Apache Iceberg)",
       videoUrl: "https://www.youtube.com/embed/0zImbc-RZA8",
-      duration: "00:00",
+      duration: "23:20",
       completed: false,
       description: "ACID transactions, schema enforcement, data versioning, and time travel using Delta Lake and Apache Iceberg."
     },
@@ -1158,7 +1162,7 @@ export const dataEngineeringCourse = {
       id: "de-6-4",
       title: "Modern Data Stack & Best Practices",
       videoUrl: "https://www.youtube.com/embed/ragDjDfwWGM",
-      duration: "00:00",
+      duration: "04:16",
       completed: false,
       description: "Modern data engineering tools, cloud-native architecture, orchestration, and industry best practices."
     }
@@ -1174,7 +1178,7 @@ export const dataEngineeringCourse = {
       id: "de-7-1",
       title: "End-to-End Data Engineering Project",
       videoUrl: "https://www.youtube.com/embed/Dn4HhgljTik",
-      duration: "00:00",
+      duration: "18:02",
       completed: false,
       description: "Build a complete end-to-end data engineering pipeline using industry-standard tools and best practices."
     },
@@ -1182,7 +1186,7 @@ export const dataEngineeringCourse = {
       id: "de-7-2",
       title: "Real-World ETL Pipeline Project",
       videoUrl: "https://www.youtube.com/embed/84HOVF8Vn3I",
-      duration: "00:00",
+      duration: "34:14",
       completed: false,
       description: "Design and implement scalable ETL pipelines for processing and transforming large datasets."
     },
@@ -1190,7 +1194,7 @@ export const dataEngineeringCourse = {
       id: "de-7-3",
       title: "Data Engineering Capstone Project",
       videoUrl: "https://www.youtube.com/embed/gRE3E7VUzRU",
-      duration: "00:00",
+      duration: "16:34",
       completed: false,
       description: "Apply SQL, Spark, Airflow, Kafka, and cloud technologies to solve a real-world data engineering problem."
     },
@@ -1198,7 +1202,7 @@ export const dataEngineeringCourse = {
       id: "de-7-4",
       title: "Data Engineering Interview Questions",
       videoUrl: "https://www.youtube.com/embed/VVSzWm53bes",
-      duration: "00:00",
+      duration: "14:10",
       completed: false,
       description: "Prepare for technical interviews with commonly asked data engineering questions and practical scenarios."
     },
@@ -1206,7 +1210,7 @@ export const dataEngineeringCourse = {
       id: "de-7-5",
       title: "Resume Building & Career Guidance",
       videoUrl: "https://www.youtube.com/embed/X-mwxwXGu6Y",
-      duration: "00:00",
+      duration: "07:44",
       completed: false,
       description: "Learn how to build a strong Data Engineering resume, optimize LinkedIn, and prepare for placements."
     },
@@ -1214,7 +1218,7 @@ export const dataEngineeringCourse = {
       id: "de-7-6",
       title: "Data Engineering Roadmap & Career Tips",
       videoUrl: "https://www.youtube.com/embed/X-mwxwXGu6Y",
-      duration: "00:00",
+      duration: "07:45",
       completed: false,
       description: "Final roadmap, career guidance, certification recommendations, and next steps to become a Data Engineer."
     }
@@ -1228,7 +1232,7 @@ export const dataEngineeringCourse = {
       id: "de-8-1",
       title: "Introduction to Data Quality",
       videoUrl: "https://www.youtube.com/embed/sbch85VU4IA",
-      duration: "00:00",
+      duration: "18:20",
       completed: false,
       description: "Understand the importance of data quality, common issues, and validation techniques in data engineering."
     },
@@ -1236,7 +1240,7 @@ export const dataEngineeringCourse = {
       id: "de-8-2",
       title: "Data Validation & Testing",
       videoUrl: "https://www.youtube.com/embed/Sr05RY6t2OM",
-      duration: "00:00",
+      duration: "26:44",
       completed: false,
       description: "Learn data validation methods, automated testing, and ensuring reliable data pipelines."
     },
@@ -1244,7 +1248,7 @@ export const dataEngineeringCourse = {
       id: "de-8-3",
       title: "Data Pipeline Monitoring",
       videoUrl: "https://www.youtube.com/embed/-tZbkgTnGs4",
-      duration: "00:00",
+      duration: "49:15",
       completed: false,
       description: "Monitor ETL pipelines, logging, alerting, and handling production failures."
     },
@@ -1252,7 +1256,7 @@ export const dataEngineeringCourse = {
       id: "de-8-4",
       title: "Data Engineering Best Practices",
       videoUrl: "https://www.youtube.com/embed/Z2_VvVQKqhY",
-      duration: "00:00",
+      duration: "04:12",
       completed: false,
       description: "Industry best practices for scalable, maintainable, and reliable data engineering solutions."
     },
