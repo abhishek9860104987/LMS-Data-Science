@@ -11,7 +11,10 @@ import { useAuth } from '../contexts/AuthContext';
 import { API_URL } from '../utils/api';
 import {
   courseData,
+  allCourses,
+  getCourseById,
   getFirstLesson,
+  getLessonById,
   getNextLesson,
   getPreviousLesson,
   getProgress,
@@ -40,16 +43,20 @@ const Dashboard = () => {
   const [activeTab,        setActiveTab]        = useState('Dashboard');
   const [requestModalOpen, setRequestModalOpen] = useState(false);
 
+  /* Current active course */
+  const [currentCourse, setCurrentCourse] = useState(() => {
+    const savedId = localStorage.getItem('lms_current_course_id');
+    return getCourseById(savedId);
+  });
+
   /* Selected lesson */
   const [selectedLesson, setSelectedLesson] = useState(() => {
     const saved = loadJSON(LS_LESSON, null);
     if (saved) {
-      for (const week of courseData.weeks) {
-        const found = week.lessons.find(l => l.id === saved.id);
-        if (found) return found;
-      }
+      const found = getLessonById(saved.id, currentCourse);
+      if (found) return found;
     }
-    return getFirstLesson();
+    return getFirstLesson(currentCourse);
   });
 
   /* Progress states synced with backend */
@@ -138,6 +145,15 @@ const Dashboard = () => {
   }, [selectedLesson]);
 
 
+  /* ── Select Course ───────────────────────────────────────── */
+  const handleSelectCourse = useCallback((course) => {
+    setCurrentCourse(course);
+    localStorage.setItem('lms_current_course_id', course.id);
+    const firstLesson = getFirstLesson(course);
+    setSelectedLesson(firstLesson);
+    setActiveTab('Dashboard');
+  }, []);
+
   /* ── Lesson selection ───────────────────────────────────── */
   const handleSelectLesson = useCallback((lesson) => {
     setSelectedLesson(lesson);
@@ -154,15 +170,15 @@ const Dashboard = () => {
   /* ── Next / Prev navigation ─────────────────────────────── */
   const handleNext = useCallback(() => {
     if (!selectedLesson) return;
-    const next = getNextLesson(selectedLesson.id);
+    const next = getNextLesson(selectedLesson.id, currentCourse);
     if (next) handleSelectLesson(next);
-  }, [selectedLesson, handleSelectLesson]);
+  }, [selectedLesson, currentCourse, handleSelectLesson]);
 
   const handlePrev = useCallback(() => {
     if (!selectedLesson) return;
-    const prev = getPreviousLesson(selectedLesson.id);
+    const prev = getPreviousLesson(selectedLesson.id, currentCourse);
     if (prev) handleSelectLesson(prev);
-  }, [selectedLesson, handleSelectLesson]);
+  }, [selectedLesson, currentCourse, handleSelectLesson]);
 
   /* ── Mark complete / unread ─────────────────────────────── */
   const handleMarkComplete = useCallback((lessonId) => {
@@ -184,21 +200,10 @@ const Dashboard = () => {
   }, [watchHistory, syncProgress]);
 
   /* ── Progress calculation ───────────────────────────────── */
-  const rawProgress = getProgress();
-  let dynamicCompleted = 0;
-  courseData.weeks.forEach(week => {
-    week.lessons.forEach(l => {
-      if (completedIds.has(l.id) || l.completed) dynamicCompleted++;
-    });
-  });
-  const progressData = {
-    total: rawProgress.total,
-    completed: dynamicCompleted,
-    percentage: rawProgress.total > 0 ? Math.round((dynamicCompleted / rawProgress.total) * 100) : 0,
-  };
+  const progressData = getProgress(currentCourse, completedIds);
 
-  const hasNext = selectedLesson ? !!getNextLesson(selectedLesson.id) : false;
-  const hasPrev = selectedLesson ? !!getPreviousLesson(selectedLesson.id) : false;
+  const hasNext = selectedLesson ? !!getNextLesson(selectedLesson.id, currentCourse) : false;
+  const hasPrev = selectedLesson ? !!getPreviousLesson(selectedLesson.id, currentCourse) : false;
   const isCurrentCompleted = selectedLesson
     ? completedIds.has(selectedLesson.id) || selectedLesson.completed
     : false;
@@ -210,14 +215,14 @@ const Dashboard = () => {
 
   /* ── SEO metadata (dynamic based on active lesson) ─────── */
   const seoTitle = selectedLesson
-    ? `${selectedLesson.title} — Data Science Master`
+    ? `${selectedLesson.title} — ${currentCourse.courseTitle}`
     : activeTab === 'Courses Enrolled'
-      ? 'Courses Enrolled — Data Science Master'
-      : 'Dashboard — Data Science Master';
+      ? `Courses Enrolled — ${currentCourse.courseTitle}`
+      : `Dashboard — ${currentCourse.courseTitle}`;
 
   const seoDescription = selectedLesson
-    ? `Watch: ${selectedLesson.title}. Track your progress through Data Science, Machine Learning, Deep Learning, LLMs, RAG and Agentic AI modules.`
-    : 'Access your enrolled Data Science Master courses, track weekly progress, and resume your personalised learning journey.';
+    ? `Watch: ${selectedLesson.title}. Track your progress through ${currentCourse.courseTitle} modules.`
+    : `Access your enrolled ${currentCourse.courseTitle} courses, track weekly progress, and resume your learning.`;
 
   const DASHBOARD_JSON_LD = {
     '@context': 'https://schema.org',
@@ -227,12 +232,12 @@ const Dashboard = () => {
         name: 'Data Science Master',
         url: 'https://datasciencemaster.edu/',
         logo: 'https://datasciencemaster.edu/logo.png',
-        description: 'A comprehensive LMS offering Data Science, Machine Learning, Deep Learning, and AI courses.'
+        description: 'A comprehensive LMS offering Data Science, Machine Learning, Deep Learning, and Data Engineering courses.'
       },
       {
         '@type': 'Course',
-        name: 'Data Science Master Program',
-        description: 'A structured 8-week course covering Python, Machine Learning, Deep Learning, LLMs, RAG, and Agentic AI with hands-on modules and live progress tracking.',
+        name: currentCourse.courseTitle,
+        description: currentCourse.courseDescription,
         provider: {
           '@type': 'Organization',
           name: 'Data Science Master',
@@ -265,6 +270,7 @@ const Dashboard = () => {
       <Header
         isCollapsed={sidebarCollapsed}
         currentLesson={selectedLesson}
+        currentCourseTitle={currentCourse.courseTitle}
         darkMode={darkMode}
         toggleDarkMode={() => setDarkMode(d => !d)}
       />
@@ -273,9 +279,10 @@ const Dashboard = () => {
       >
         {activeTab === 'Courses Enrolled' ? (
           <CoursesEnrolled 
-            progressData={progressData} 
+            completedIds={completedIds}
+            activeCourseId={currentCourse.id}
+            onSelectCourse={handleSelectCourse}
             darkMode={darkMode} 
-            onOpenDashboard={() => setActiveTab('Dashboard')}
           />
         ) : (
           <>
@@ -312,26 +319,26 @@ const Dashboard = () => {
               >
                 <div className="flex-1 overflow-y-auto custom-scrollbar p-3">
                   <CourseContent
-                    weeks={courseData.weeks}
+                    weeks={currentCourse.weeks}
                     selectedLesson={selectedLesson}
                     onLessonSelect={handleSelectLesson}
                     darkMode={darkMode}
                     completedIds={completedIds}
                     progressData={progressData}
-                    defaultOpenWeekId={courseData.weeks[0]?.id}
+                    defaultOpenWeekId={currentCourse.weeks[0]?.id}
                   />
                 </div>
               </aside>
             </div>
             <div className="lg:hidden px-4 pb-6">
               <CourseContent
-                weeks={courseData.weeks}
+                weeks={currentCourse.weeks}
                 selectedLesson={selectedLesson}
                 onLessonSelect={handleSelectLesson}
                 darkMode={darkMode}
                 completedIds={completedIds}
                 progressData={progressData}
-                defaultOpenWeekId={courseData.weeks[0]?.id}
+                defaultOpenWeekId={currentCourse.weeks[0]?.id}
               />
             </div>
           </>

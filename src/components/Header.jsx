@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import ProfileModal from './ProfileModal';
 import NotificationBell from './NotificationBell';
 
-const Header = ({ isCollapsed, currentLesson, darkMode, toggleDarkMode }) => {
+const Header = ({ isCollapsed, currentLesson, currentCourseTitle, darkMode, toggleDarkMode }) => {
   const [profileOpen, setProfileOpen] = useState(false);
   const { user, logout } = useAuth();
   const leftOffset = isCollapsed ? 'lg:left-[72px]' : 'lg:left-64';
@@ -32,7 +32,7 @@ const Header = ({ isCollapsed, currentLesson, darkMode, toggleDarkMode }) => {
         <div className="flex items-center gap-3 min-w-0 pl-12 lg:pl-0">
           <div className="min-w-0">
             <h1 className={`font-bold text-sm sm:text-lg leading-tight truncate ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              {courseData.courseTitle}
+              {currentCourseTitle || courseData.courseTitle}
             </h1>
             {currentLesson && (
               <p className={`text-[11px] sm:text-xs truncate ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>

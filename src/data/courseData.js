@@ -10,6 +10,8 @@
 const PLACEHOLDER = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // replace with real links
 
 export const courseData = {
+  id: "data-science",
+  category: "Data Science",
   courseTitle: "Data Science Master",
   courseDescription: "Complete Data Science with Machine Learning, Deep Learning, and AI",
   weeks: [
@@ -849,50 +851,470 @@ export const courseData = {
         {
           id: "8-3",
           title: "Agent Evaluation",
-          videoUrl: "https://www.youtube.com/embed/TjDytm85d78",
-          duration: "18:35",
+          readingUrl: "https://docs.smith.langchain.com/evaluation",
+          lessonType: "reading",
+          duration: "15 min read",
           completed: false,
-          description: "Evaluating the performance of agentic AI systems"
+          description: "Evaluating performance, accuracy, and reliability of agentic AI systems"
         }
       ]
     }
-
   ]
 };
 
-// ── Utility helpers (used by App.jsx — do not remove) ─────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA ENGINEERING MASTER COURSE
+// ─────────────────────────────────────────────────────────────────────────────
 
-export const getFirstLesson = () => courseData.weeks[0].lessons[0];
+export const dataEngineeringCourse = {
+  id: "data-engineering",
+  category: "Data Engineering",
+  courseTitle: "Data Engineering Master",
+  courseDescription: "Master SQL, Data Warehousing, PySpark, Apache Airflow, Apache Kafka, Snowflake, and Modern Data Pipelines",
+  weeks: [
+  {
+  id: 1,
+  title: "Week 1 - SQL & Relational Database Engineering",
+  lessons: [
+    {
+      id: "de-1-1",
+      title: "Advanced SQL & Complex Queries",
+      videoUrl: "https://www.youtube.com/embed/t2_Q2BRzeEE",
+      duration: "00:00",
+      completed: false,
+      description: "Mastering complex JOINs, subqueries, CTEs, and SQL execution order for data engineers."
+    },
+    {
+      id: "de-1-2",
+      title: "SQL Window Functions Deep Dive",
+      videoUrl: "https://www.youtube.com/embed/qVyvmzFxF_o",
+      duration: "00:00",
+      completed: false,
+      description: "ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD, LAG, and sliding frame aggregations."
+    },
+    {
+      id: "de-1-3",
+      title: "Database Indexing & Query Optimization",
+      videoUrl: "https://www.youtube.com/embed/ahNqJ6-FR5o",
+      duration: "00:00",
+      completed: false,
+      description: "B-Tree indexes, Hash indexes, Query Execution Plans, EXPLAIN ANALYZE, and tuning slow queries."
+    },
+    {
+      id: "de-1-4",
+      title: "ACID Properties & Database Transactions",
+      videoUrl: "https://www.youtube.com/embed/N8eK-maHqVE",
+      duration: "00:00",
+      completed: false,
+      description: "Atomicity, Consistency, Isolation levels, Durability, and concurrency control in Relational DBs."
+    },
+    {
+      id: "de-1-5",
+      title: "Normalization & Database Design",
+      videoUrl: "https://www.youtube.com/embed/suKHq3ZLPmU",
+      duration: "00:00",
+      completed: false,
+      description: "Learn 1NF, 2NF, 3NF, BCNF, schema design, and relational database modeling."
+    },
+    {
+      id: "de-1-6",
+      title: "SQL Interview Questions & Practice",
+      videoUrl: "https://www.youtube.com/embed/E9WGC0SLPVs",
+      duration: "00:00",
+      completed: false,
+      description: "Practice advanced SQL interview questions and real-world query solving."
+    }
+  ]
+},
+   {
+  id: 2,
+  title: "Week 2 - Data Modeling & Data Warehousing",
+  lessons: [
+    {
+      id: "de-2-1",
+      title: "OLTP vs OLAP Architecture",
+      videoUrl: "https://www.youtube.com/embed/TDKoTItCVMU",
+      duration: "00:00",
+      completed: false,
+      description: "Key differences between transactional databases and analytical data warehouses."
+    },
+    {
+      id: "de-2-2",
+      title: "Dimensional Modeling: Star vs Snowflake Schema",
+      videoUrl: "https://www.youtube.com/embed/cMUJFau5Wvg",
+      duration: "00:00",
+      completed: false,
+      description: "Fact tables, Dimension tables, surrogate keys, and schema design principles."
+    },
+    {
+      id: "de-2-3",
+      title: "Slowly Changing Dimensions (SCD Types 0-3)",
+      videoUrl: "https://www.youtube.com/embed/FKSSOpQe5Jc",
+      duration: "00:00",
+      completed: false,
+      description: "Handling historical data changes using SCD Type 1, Type 2, and Type 3 strategies."
+    },
+    {
+      id: "de-2-4",
+      title: "ETL vs ELT Paradigm Shift",
+      videoUrl: "https://www.youtube.com/embed/aY7z4HcHm5M",
+      duration: "00:00",
+      completed: false,
+      description: "Traditional Extract-Transform-Load vs Modern Extract-Load-Transform in Cloud Warehouses."
+    },
+    {
+      id: "de-2-5",
+      title: "Data Warehousing Best Practices",
+      videoUrl: "https://www.youtube.com/embed/C72qtLE9eVE",
+      duration: "00:00",
+      completed: false,
+      description: "Best practices for designing scalable, maintainable, and high-performance data warehouse solutions."
+    }
+  ]
+},
+    {
+      id: 3,
+      title: "Week 3 - Distributed Systems & PySpark",
+      lessons: [
+        {
+          id: "de-3-1",
+          title: "Big Data Fundamentals & Hadoop/HDFS",
+          videoUrl: "https://www.youtube.com/embed/g3yqUvhz7m0",
+          duration: "45:00",
+          completed: false,
+          description: "Distributed storage, block size, NameNode, DataNodes, and MapReduce overview."
+        },
+        {
+          id: "de-3-2",
+          title: "Apache Spark Core & PySpark Architecture",
+          videoUrl: "https://www.youtube.com/embed/_C8kWso474U",
+          duration: "1:15:30",
+          completed: false,
+          description: "Spark Driver, Workers, Executors, RDDs, DataFrames, and Lazy Evaluation."
+        },
+        {
+          id: "de-3-3",
+          title: "PySpark DataFrames & Transformations",
+          videoUrl: "https://www.youtube.com/embed/cYBkW8pWdZg",
+          duration: "58:40",
+          completed: false,
+          description: "Filtering, aggregations, joins, windowing, and UDFs in PySpark."
+        },
+        {
+          id: "de-3-4",
+          title: "Spark Optimization: Partitioning & Shuffling",
+          videoUrl: "https://www.youtube.com/embed/d2J7s4-hJ_Y",
+          duration: "40:20",
+          completed: false,
+          description: "Broadcasting, repartitioning, coalesce, cache/persist, and avoiding data skew."
+        }
+      ]
+    },
+   {
+  id: 4,
+  title: "Week 4 - Workflow Orchestration with Apache Airflow",
+  lessons: [
+    {
+      id: "de-4-1",
+      title: "Apache Airflow Architecture & Core Concepts",
+      videoUrl: "https://www.youtube.com/embed/16BF6cDqLBE",
+      duration: "00:00",
+      completed: false,
+      description: "Scheduler, Webserver, Executor, Workers, DAGs, Tasks, and Operators."
+    },
+    {
+      id: "de-4-2",
+      title: "Building Production Airflow DAGs",
+      videoUrl: "https://www.youtube.com/embed/ya4298V8Mqo",
+      duration: "00:00",
+      completed: false,
+      description: "PythonOperator, BashOperator, Sensors, Task Dependencies, and XComs."
+    },
+    {
+      id: "de-4-3",
+      title: "Airflow Backfilling, SLAs & Catchup",
+      videoUrl: "https://www.youtube.com/embed/TJOwP5VhvAo",
+      duration: "00:00",
+      completed: false,
+      description: "Managing execution dates, backfilling historical pipeline runs, and alerting."
+    },
+    {
+      id: "de-4-4",
+      title: "Airflow Scheduling & Cron Expressions",
+      videoUrl: "https://www.youtube.com/embed/ah1XqItWkuc",
+      duration: "00:00",
+      completed: false,
+      description: "Learn scheduling intervals, cron expressions, and DAG execution timing."
+    },
+    {
+      id: "de-4-5",
+      title: "Airflow Connections & Variables",
+      videoUrl: "https://www.youtube.com/embed/_Ud_7wL24iM",
+      duration: "00:00",
+      completed: false,
+      description: "Configure connections, variables, secrets, and environment management."
+    },
+    {
+      id: "de-4-6",
+      title: "Airflow Sensors & Hooks",
+      videoUrl: "https://www.youtube.com/embed/W9ymYBsl-J4",
+      duration: "00:00",
+      completed: false,
+      description: "Understand sensors, hooks, and external system integrations."
+    },
+    {
+      id: "de-4-7",
+      title: "Airflow Monitoring & Logging",
+      videoUrl: "https://www.youtube.com/embed/4v7ffXxOnwU",
+      duration: "00:00",
+      completed: false,
+      description: "Monitor DAG runs, logs, retries, failures, and debugging techniques."
+    },
+    {
+      id: "de-4-8",
+      title: "Deploying Airflow Pipelines",
+      videoUrl: "https://www.youtube.com/embed/nc4IFKkkfXM",
+      duration: "00:00",
+      completed: false,
+      description: "Deploy Apache Airflow pipelines for production environments."
+    },
+    {
+      id: "de-4-9",
+      title: "Airflow Best Practices & Interview Questions",
+      videoUrl: "https://www.youtube.com/embed/mFsifcklyrc",
+      duration: "00:00",
+      completed: false,
+      description: "Production best practices, optimization tips, and frequently asked interview questions."
+    }
+  ]
+},
+    {
+  id: 5,
+  title: "Week 5 - Real-Time Streaming with Apache Kafka",
+  lessons: [
+    {
+      id: "de-5-1",
+      title: "Apache Kafka Architecture & Event Streaming",
+      videoUrl: "https://www.youtube.com/embed/49MwmVFiOV0",
+      duration: "00:00",
+      completed: false,
+      description: "Topics, Partitions, Offsets, Producers, Consumer Groups, Brokers, and Kafka architecture fundamentals."
+    },
+    {
+      id: "de-5-2",
+      title: "Building Kafka Producers & Consumers in Python",
+      videoUrl: "https://www.youtube.com/embed/L0-r7gfPM4Q",
+      duration: "00:00",
+      completed: false,
+      description: "Publishing and consuming real-time event streams using kafka-python and confluent-kafka."
+    },
+    {
+      id: "de-5-3",
+      title: "Spark Structured Streaming with Kafka",
+      videoUrl: "https://www.youtube.com/embed/KAuIvccwbPY",
+      duration: "00:00",
+      completed: false,
+      description: "Integrating Apache Spark Structured Streaming with Kafka for real-time data processing."
+    },
+    {
+      id: "de-5-4",
+      title: "Kafka Interview Questions & Best Practices",
+      videoUrl: "https://www.youtube.com/embed/bDhvCp3_lYw",
+      duration: "00:00",
+      completed: false,
+      description: "Kafka deployment, optimization techniques, best practices, and commonly asked interview questions."
+    }
+  ]
+},
+   {
+  id: 6,
+  title: "Week 6 - Cloud Data Warehousing & Modern Data Stack",
+  lessons: [
+    {
+      id: "de-6-1",
+      title: "Snowflake Architecture & Virtual Warehouses",
+      videoUrl: "https://www.youtube.com/embed/ikSovL0SYfE",
+      duration: "00:00",
+      completed: false,
+      description: "Separation of storage and compute, micro-partitions, virtual warehouses, and Time Travel in Snowflake."
+    },
+    {
+      id: "de-6-2",
+      title: "Transforming Data with dbt (data build tool)",
+      videoUrl: "https://www.youtube.com/embed/EB8lfdxpirM",
+      duration: "00:00",
+      completed: false,
+      description: "Building SQL transformations, models, testing, documentation, and data pipelines using dbt."
+    },
+    {
+      id: "de-6-3",
+      title: "Data Lakehouse Architecture (Delta Lake / Apache Iceberg)",
+      videoUrl: "https://www.youtube.com/embed/0zImbc-RZA8",
+      duration: "00:00",
+      completed: false,
+      description: "ACID transactions, schema enforcement, data versioning, and time travel using Delta Lake and Apache Iceberg."
+    },
+    {
+      id: "de-6-4",
+      title: "Modern Data Stack & Best Practices",
+      videoUrl: "https://www.youtube.com/embed/ragDjDfwWGM",
+      duration: "00:00",
+      completed: false,
+      description: "Modern data engineering tools, cloud-native architecture, orchestration, and industry best practices."
+    }
+  ]
 
-export const getLessonById = (lessonId) => {
-  for (const week of courseData.weeks) {
-    const lesson = week.lessons.find(l => l.id === lessonId);
-    if (lesson) return lesson;
+      
+    },
+{
+  id: 7,
+  title: "Week 7 - Data Engineering Projects & Interview Preparation",
+  lessons: [
+    {
+      id: "de-7-1",
+      title: "End-to-End Data Engineering Project",
+      videoUrl: "https://www.youtube.com/embed/Dn4HhgljTik",
+      duration: "00:00",
+      completed: false,
+      description: "Build a complete end-to-end data engineering pipeline using industry-standard tools and best practices."
+    },
+    {
+      id: "de-7-2",
+      title: "Real-World ETL Pipeline Project",
+      videoUrl: "https://www.youtube.com/embed/84HOVF8Vn3I",
+      duration: "00:00",
+      completed: false,
+      description: "Design and implement scalable ETL pipelines for processing and transforming large datasets."
+    },
+    {
+      id: "de-7-3",
+      title: "Data Engineering Capstone Project",
+      videoUrl: "https://www.youtube.com/embed/gRE3E7VUzRU",
+      duration: "00:00",
+      completed: false,
+      description: "Apply SQL, Spark, Airflow, Kafka, and cloud technologies to solve a real-world data engineering problem."
+    },
+    {
+      id: "de-7-4",
+      title: "Data Engineering Interview Questions",
+      videoUrl: "https://www.youtube.com/embed/VVSzWm53bes",
+      duration: "00:00",
+      completed: false,
+      description: "Prepare for technical interviews with commonly asked data engineering questions and practical scenarios."
+    },
+    {
+      id: "de-7-5",
+      title: "Resume Building & Career Guidance",
+      videoUrl: "https://www.youtube.com/embed/X-mwxwXGu6Y",
+      duration: "00:00",
+      completed: false,
+      description: "Learn how to build a strong Data Engineering resume, optimize LinkedIn, and prepare for placements."
+    },
+    {
+      id: "de-7-6",
+      title: "Data Engineering Roadmap & Career Tips",
+      videoUrl: "https://www.youtube.com/embed/X-mwxwXGu6Y",
+      duration: "00:00",
+      completed: false,
+      description: "Final roadmap, career guidance, certification recommendations, and next steps to become a Data Engineer."
+    }
+  ]
+},
+{
+  id: 8,
+  title: "Week 8 - Data Quality, Testing & Best Practices",
+  lessons: [
+    {
+      id: "de-8-1",
+      title: "Introduction to Data Quality",
+      videoUrl: "https://www.youtube.com/embed/sbch85VU4IA",
+      duration: "00:00",
+      completed: false,
+      description: "Understand the importance of data quality, common issues, and validation techniques in data engineering."
+    },
+    {
+      id: "de-8-2",
+      title: "Data Validation & Testing",
+      videoUrl: "https://www.youtube.com/embed/Sr05RY6t2OM",
+      duration: "00:00",
+      completed: false,
+      description: "Learn data validation methods, automated testing, and ensuring reliable data pipelines."
+    },
+    {
+      id: "de-8-3",
+      title: "Data Pipeline Monitoring",
+      videoUrl: "https://www.youtube.com/embed/-tZbkgTnGs4",
+      duration: "00:00",
+      completed: false,
+      description: "Monitor ETL pipelines, logging, alerting, and handling production failures."
+    },
+    {
+      id: "de-8-4",
+      title: "Data Engineering Best Practices",
+      videoUrl: "https://www.youtube.com/embed/Z2_VvVQKqhY",
+      duration: "00:00",
+      completed: false,
+      description: "Industry best practices for scalable, maintainable, and reliable data engineering solutions."
+    },
+    {
+      id: "de-8-5",
+      title: "SQL Data Quality Checks (Reading Material)",
+      readingUrl: "https://www.telm.ai/blog/sql-data-quality-checks/",
+      duration: "Reading",
+      completed: false,
+      description: "Learn practical SQL data quality checks, validation techniques, and best practices through this detailed article."
+    }
+  ]
+}
+  ]
+};
+
+export const allCourses = [courseData, dataEngineeringCourse];
+
+export const getCourseById = (courseId) => {
+  return allCourses.find(c => c.id === courseId) || courseData;
+};
+
+// ── Utility helpers ──────────────────────────────────────────────────────────
+
+export const getFirstLesson = (targetCourse = courseData) => {
+  return targetCourse.weeks[0]?.lessons[0] || courseData.weeks[0].lessons[0];
+};
+
+export const getLessonById = (lessonId, targetCourse = courseData) => {
+  const searchCourses = targetCourse ? [targetCourse, ...allCourses] : allCourses;
+  for (const course of searchCourses) {
+    for (const week of course.weeks) {
+      const lesson = week.lessons.find(l => l.id === lessonId);
+      if (lesson) return lesson;
+    }
   }
   return null;
 };
 
-export const getNextLesson = (currentLessonId) => {
-  for (let wi = 0; wi < courseData.weeks.length; wi++) {
-    const week = courseData.weeks[wi];
+export const getNextLesson = (currentLessonId, targetCourse = courseData) => {
+  const course = targetCourse || courseData;
+  for (let wi = 0; wi < course.weeks.length; wi++) {
+    const week = course.weeks[wi];
     for (let li = 0; li < week.lessons.length; li++) {
       if (week.lessons[li].id === currentLessonId) {
         if (li < week.lessons.length - 1) return week.lessons[li + 1];
-        if (wi < courseData.weeks.length - 1) return courseData.weeks[wi + 1].lessons[0];
+        if (wi < course.weeks.length - 1) return course.weeks[wi + 1].lessons[0];
       }
     }
   }
   return null;
 };
 
-export const getPreviousLesson = (currentLessonId) => {
-  for (let wi = 0; wi < courseData.weeks.length; wi++) {
-    const week = courseData.weeks[wi];
+export const getPreviousLesson = (currentLessonId, targetCourse = courseData) => {
+  const course = targetCourse || courseData;
+  for (let wi = 0; wi < course.weeks.length; wi++) {
+    const week = course.weeks[wi];
     for (let li = 0; li < week.lessons.length; li++) {
       if (week.lessons[li].id === currentLessonId) {
         if (li > 0) return week.lessons[li - 1];
         if (wi > 0) {
-          const prev = courseData.weeks[wi - 1];
+          const prev = course.weeks[wi - 1];
           return prev.lessons[prev.lessons.length - 1];
         }
       }
@@ -901,11 +1323,11 @@ export const getPreviousLesson = (currentLessonId) => {
   return null;
 };
 
-export const getProgress = () => {
+export const getProgress = (targetCourse = courseData, completedSet = new Set()) => {
   let total = 0, completed = 0;
-  courseData.weeks.forEach(week => {
-    total     += week.lessons.length;
-    completed += week.lessons.filter(l => l.completed).length;
+  targetCourse.weeks.forEach(week => {
+    total += week.lessons.length;
+    completed += week.lessons.filter(l => completedSet.has(l.id) || l.completed).length;
   });
   return {
     total,
@@ -913,3 +1335,4 @@ export const getProgress = () => {
     percentage: total > 0 ? Math.round((completed / total) * 100) : 0
   };
 };
+
