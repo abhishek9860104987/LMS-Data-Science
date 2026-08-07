@@ -115,20 +115,20 @@ const VideoPlayer = ({
           )}
         </div>
       ) : isWeek3 ? (
-        /* Dedicated YouTube Card for Week 3 Lessons */
+        /* Dedicated YouTube Card for Week 3 Lessons (Matches Reading Module UI design) */
         <div className={`
-          rounded-2xl p-6 sm:p-10 shadow-xl border flex flex-col items-center justify-center text-center gap-5
-          ${darkMode ? 'bg-gradient-to-b from-slate-800 to-slate-900 border-gray-700/60' : 'bg-gradient-to-b from-red-50/40 to-white border-red-100'}
+          rounded-2xl p-8 sm:p-12 shadow-xl border flex flex-col items-center justify-center text-center gap-5 my-2
+          ${darkMode ? 'bg-[#0f172a] border-slate-700/80' : 'bg-slate-900 border-slate-800 text-white'}
         `}>
-          <div className="w-16 h-16 rounded-2xl bg-red-600/10 dark:bg-red-500/20 text-red-600 dark:text-red-400 flex items-center justify-center shadow-inner">
-            <FiPlay size={32} className="ml-1" />
+          <div className="w-14 h-14 rounded-2xl bg-blue-600/20 text-blue-400 flex items-center justify-center border border-blue-500/20 shadow-inner">
+            <FiPlay size={28} className="ml-0.5" />
           </div>
           <div className="max-w-xl">
-            <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+            <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">
               {lesson.title}
             </h3>
-            <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              {lesson.description || 'Watch this full classification and machine learning video directly on YouTube.'}
+            <p className="text-sm leading-relaxed text-slate-300">
+              {lesson.description || 'Watch this classification and machine learning video directly on YouTube.'}
             </p>
           </div>
           {youtubeWatchUrl && (
@@ -136,7 +136,7 @@ const VideoPlayer = ({
               href={youtubeWatchUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-sm shadow-lg shadow-red-500/25 transition-all duration-200 hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all duration-200 hover:scale-[1.03] active:scale-95 mt-1"
             >
               Watch on YouTube <FiExternalLink size={16} />
             </a>
