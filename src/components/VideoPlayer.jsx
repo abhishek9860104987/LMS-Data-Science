@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   FiCheckCircle, FiClock, FiChevronLeft, FiChevronRight,
-  FiBookOpen, FiCheck, FiExternalLink
+  FiBookOpen, FiCheck, FiExternalLink, FiPlay
 } from 'react-icons/fi';
 
 const VideoPlayer = ({
@@ -17,7 +17,7 @@ const VideoPlayer = ({
 }) => {
   const [key, setKey] = useState(lesson?.id ?? '');
 
-  // Re-mount iframe / view on lesson change for a clean load
+  // Re-mount view on lesson change for a clean load
   useEffect(() => {
     setKey(lesson?.id ?? '');
   }, [lesson?.id]);
@@ -37,6 +37,9 @@ const VideoPlayer = ({
 
   const isReadingModule = lesson.lessonType === 'reading' || lesson.type === 'reading' || !!lesson.readingUrl || (lesson.videoUrl && !lesson.videoUrl.includes('youtube.com/embed/'));
   const readingTargetUrl = lesson.readingUrl || lesson.videoUrl;
+
+  // Check if this lesson belongs specifically to Week 3 (Classification)
+  const isWeek3 = lesson.id && String(lesson.id).startsWith('3-');
 
   // Clean embed URL: strip any existing params, add our params
   const rawUrl  = lesson.videoUrl ? lesson.videoUrl.split('?')[0] : '';
@@ -62,11 +65,15 @@ const VideoPlayer = ({
         shadow-sm
       `}>
         <div className="flex items-center gap-2 min-w-0">
-          {isReadingModule && (
+          {isReadingModule ? (
             <span className="flex-shrink-0 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">
               Reading Module
             </span>
-          )}
+          ) : isWeek3 ? (
+            <span className="flex-shrink-0 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-red-500/20 text-red-400 border border-red-500/30">
+              YouTube Video
+            </span>
+          ) : null}
           <h2 className={`text-sm font-semibold truncate ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             {lesson.title}
           </h2>
@@ -79,7 +86,7 @@ const VideoPlayer = ({
         )}
       </div>
 
-      {/* ── Media Content Area: Video Iframe or Reading Module Card ── */}
+      {/* ── Media Content Area: Video Iframe, Reading Card, or Week 3 YouTube Card ── */}
       {isReadingModule ? (
         <div className={`
           rounded-2xl p-6 sm:p-10 shadow-xl border flex flex-col items-center justify-center text-center gap-5
@@ -107,7 +114,36 @@ const VideoPlayer = ({
             </a>
           )}
         </div>
+      ) : isWeek3 ? (
+        /* Dedicated YouTube Card for Week 3 Lessons */
+        <div className={`
+          rounded-2xl p-6 sm:p-10 shadow-xl border flex flex-col items-center justify-center text-center gap-5
+          ${darkMode ? 'bg-gradient-to-b from-slate-800 to-slate-900 border-gray-700/60' : 'bg-gradient-to-b from-red-50/40 to-white border-red-100'}
+        `}>
+          <div className="w-16 h-16 rounded-2xl bg-red-600/10 dark:bg-red-500/20 text-red-600 dark:text-red-400 flex items-center justify-center shadow-inner">
+            <FiPlay size={32} className="ml-1" />
+          </div>
+          <div className="max-w-xl">
+            <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+              {lesson.title}
+            </h3>
+            <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              {lesson.description || 'Watch this full classification and machine learning video directly on YouTube.'}
+            </p>
+          </div>
+          {youtubeWatchUrl && (
+            <a
+              href={youtubeWatchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-sm shadow-lg shadow-red-500/25 transition-all duration-200 hover:scale-105 active:scale-95"
+            >
+              Watch on YouTube <FiExternalLink size={16} />
+            </a>
+          )}
+        </div>
       ) : (
+        /* Standard Video Iframe for all other weeks */
         <div className={`
           rounded-2xl overflow-hidden shadow-xl
           ${darkMode ? 'ring-1 ring-gray-700/60' : 'ring-1 ring-gray-200/80'}
@@ -125,7 +161,7 @@ const VideoPlayer = ({
         </div>
       )}
 
-      {/* ── Lesson meta + actions ─────────────────── */}
+      {/* ── Lesson meta + actions ────────────────── */}
       <div className={`
         rounded-2xl p-4 shadow-sm border
         ${darkMode ? 'bg-gray-800 border-gray-700/60' : 'bg-white border-gray-100'}
@@ -149,23 +185,8 @@ const VideoPlayer = ({
             )}
           </div>
 
-          {/* Action Buttons */}
+          {/* Action Buttons: Mark Complete or Mark as Unread */}
           <div className="flex flex-col sm:flex-row gap-3">
-            {!isReadingModule && youtubeWatchUrl && youtubeWatchUrl.includes('youtube.com') && (
-              <a
-                href={youtubeWatchUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex-shrink-0 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-semibold transition-all duration-200 shadow-sm active:scale-95 ${
-                  darkMode
-                    ? 'border-red-500/40 text-red-400 bg-red-500/10 hover:bg-red-500/20'
-                    : 'border-red-200 text-red-600 bg-red-50 hover:bg-red-100'
-                }`}
-              >
-                Watch on YouTube <FiExternalLink size={14} />
-              </a>
-            )}
-
             {isCompleted || lesson.completed ? (
               <button
                 id={`mark-unread-${lesson.id}`}
@@ -203,14 +224,15 @@ const VideoPlayer = ({
               transition-all duration-200 active:scale-95
               ${hasPrev
                 ? darkMode
-                  ? 'bg-gray-700 hover:bg-gray-600 text-white'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                : 'bg-gray-100 text-gray-300 cursor-not-allowed dark:bg-gray-700/50 dark:text-gray-600'
+                  ? 'bg-gray-700 hover:bg-gray-600 text-white shadow-sm'
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-800 shadow-sm'
+                : darkMode
+                  ? 'bg-gray-800 text-gray-600 cursor-not-allowed border border-gray-700/40'
+                  : 'bg-gray-50 text-gray-300 cursor-not-allowed border border-gray-200/40'
               }
             `}
           >
-            <FiChevronLeft size={16} />
-            Previous
+            <FiChevronLeft size={16} /> Previous
           </button>
 
           <button
@@ -218,19 +240,21 @@ const VideoPlayer = ({
             onClick={onNext}
             disabled={!hasNext}
             className={`
-              flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold
-              transition-all duration-200 active:scale-95 shadow-sm
+              flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold
+              transition-all duration-200 active:scale-95
               ${hasNext
-                ? 'bg-[#2563EB] hover:bg-blue-700 text-white hover:shadow-md'
-                : 'bg-gray-100 text-gray-300 cursor-not-allowed dark:bg-gray-700/50 dark:text-gray-600'
+                ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/20'
+                : darkMode
+                  ? 'bg-gray-800 text-gray-600 cursor-not-allowed border border-gray-700/40'
+                  : 'bg-gray-50 text-gray-300 cursor-not-allowed border border-gray-200/40'
               }
             `}
           >
-            Next Lesson
-            <FiChevronRight size={16} />
+            Next <FiChevronRight size={16} />
           </button>
         </div>
       </div>
+
     </div>
   );
 };
