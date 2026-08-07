@@ -38,8 +38,8 @@ const VideoPlayer = ({
   const isReadingModule = lesson.lessonType === 'reading' || lesson.type === 'reading' || !!lesson.readingUrl || (lesson.videoUrl && !lesson.videoUrl.includes('youtube.com/embed/'));
   const readingTargetUrl = lesson.readingUrl || lesson.videoUrl;
 
-  // Check if this lesson belongs specifically to Week 3 (Classification)
-  const isWeek3 = lesson.id && String(lesson.id).startsWith('3-');
+  // Check if this lesson belongs specifically to Data Engineering Week 3
+  const isDataEngineeringWeek3 = lesson?.id && String(lesson.id).startsWith('de-3-');
 
   // Clean embed URL: strip any existing params, add our params
   const rawUrl  = lesson.videoUrl ? lesson.videoUrl.split('?')[0] : '';
@@ -69,8 +69,8 @@ const VideoPlayer = ({
             <span className="flex-shrink-0 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">
               Reading Module
             </span>
-          ) : isWeek3 ? (
-            <span className="flex-shrink-0 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-red-500/20 text-red-400 border border-red-500/30">
+          ) : isDataEngineeringWeek3 ? (
+            <span className="flex-shrink-0 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">
               YouTube Video
             </span>
           ) : null}
@@ -114,8 +114,8 @@ const VideoPlayer = ({
             </a>
           )}
         </div>
-      ) : isWeek3 ? (
-        /* Dedicated YouTube Card for Week 3 Lessons (Matches Reading Module UI design) */
+      ) : isDataEngineeringWeek3 ? (
+        /* Dedicated YouTube Card for Data Engineering Week 3 Lessons (Matches Reading Module UI design) */
         <div className={`
           rounded-2xl p-8 sm:p-12 shadow-xl border flex flex-col items-center justify-center text-center gap-5 my-2
           ${darkMode ? 'bg-[#0f172a] border-slate-700/80' : 'bg-slate-900 border-slate-800 text-white'}
