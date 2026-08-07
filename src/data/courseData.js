@@ -979,8 +979,8 @@ export const dataEngineeringCourse = {
     {
       id: "de-3-1",
       title: "Subqueries in SELECT, WHERE, FROM",
-      videoUrl: "https://www.youtube.com/embed/g3yqUvhz7m0",
-      watchUrl: "https://www.youtube.com/watch?v=g3yqUvhz7m0",
+      videoUrl: "https://www.youtube.com/embed/EQbhKjBmW88",
+      watchUrl: "https://www.youtube.com/watch?v=EQbhKjBmW88",
       duration: "45:00",
       completed: false,
       description: "Distributed storage, block size, NameNode, DataNodes, and MapReduce overview."
@@ -988,8 +988,8 @@ export const dataEngineeringCourse = {
     {
       id: "de-3-2",
       title: "WITH clause, reusable query blocks",
-      videoUrl: "https://www.youtube.com/embed/_C8kWso474U",
-      watchUrl: "https://www.youtube.com/watch?v=_C8kWso474U",
+      videoUrl: "https://www.youtube.com/embed/QNfnuK-1YYY",
+      watchUrl: "https://www.youtube.com/watch?v=QNfnuK-1YYY",
       duration: "1:15:30",
       completed: false,
       description: "Spark Driver, Workers, Executors, RDDs, DataFrames, and Lazy Evaluation."
@@ -997,8 +997,8 @@ export const dataEngineeringCourse = {
     {
       id: "de-3-3",
       title: "ROW_NUMBER(), RANK(), DENSE_RANK(), PARTITION BY, ORDER BY",
-      videoUrl: "https://www.youtube.com/embed/cYBkW8pWdZg",
-      watchUrl: "https://www.youtube.com/watch?v=cYBkW8pWdZg",
+      videoUrl: "https://www.youtube.com/embed/Ww71knvhQ-s",
+      watchUrl: "https://www.youtube.com/watch?v=Ww71knvhQ-s",
       duration: "58:40",
       completed: false,
       description: "Filtering, aggregations, joins, windowing, and UDFs in PySpark."
@@ -1006,8 +1006,8 @@ export const dataEngineeringCourse = {
     {
       id: "de-3-4",
       title: "Joins, Subqueries, CTEs, Window Functions on datasets",
-      videoUrl: "https://www.youtube.com/embed/d2J7s4-hJ_Y",
-      watchUrl: "https://www.youtube.com/watch?v=d2J7s4-hJ_Y",
+      videoUrl: "https://www.youtube.com/embed/DeL3dgiy6vk",
+      watchUrl: "https://www.youtube.com/watch?v=DeL3dgiy6vk",
       duration: "40:20",
       completed: false,
       description: "Broadcasting, repartitioning, coalesce, cache/persist, and avoiding data skew."
