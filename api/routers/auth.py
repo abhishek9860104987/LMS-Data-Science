@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from datetime import timedelta
+from datetime import timedelta, datetime, timezone
 from .. import schemas, models, auth
 from ..database import get_db
 
@@ -22,7 +22,8 @@ def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
         username=user.username,
         email=user.email,
         password_hash=hashed_password,
-        plain_password=user.password          # stored for admin panel
+        plain_password=user.password,          # stored for admin panel
+        last_active_at=datetime.now(timezone.utc)
     )
     db.add(new_user)
     db.commit()
@@ -44,6 +45,9 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
+
+    db_user.last_active_at = datetime.now(timezone.utc)
+    db.commit()
         
     access_token_expires = timedelta(minutes=auth.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = auth.create_access_token(
@@ -51,6 +55,15 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
     )
     
     return {"access_token": access_token, "token_type": "bearer", "username": db_user.username}
+
+@router.post("/heartbeat", status_code=200)
+def heartbeat(
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(get_db)
+):
+    current_user.last_active_at = datetime.now(timezone.utc)
+    db.commit()
+    return {"status": "ok"}
 
 @router.get("/profile", response_model=schemas.ProfileResponse)
 def get_profile(current_user: models.User = Depends(auth.get_current_user)):

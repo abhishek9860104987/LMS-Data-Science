@@ -28,6 +28,7 @@ class User(Base):
     domain = Column(String(100), nullable=True)
     current_course = Column(String(100), nullable=True)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    last_active_at = Column(DateTime, nullable=True)
 
     progress = relationship("UserProgress", back_populates="user", uselist=False, cascade="all, delete-orphan")
     bookmarks = relationship("Bookmark", back_populates="user", cascade="all, delete-orphan")

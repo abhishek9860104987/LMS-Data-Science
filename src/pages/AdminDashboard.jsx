@@ -287,6 +287,8 @@ const AdminDashboard = () => {
     setVisiblePasswords(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
+  const onlineCount = users.filter(u => u.is_online).length;
+
   if (!token) return <AdminLoginPage onLogin={setToken} />;
 
   return (
@@ -306,6 +308,11 @@ const AdminDashboard = () => {
           <div className="flex items-center gap-2 bg-slate-800 rounded-xl px-3 py-1.5 text-sm text-slate-300">
             <FiUsers size={14} />
             <span>{users.length} users</span>
+            {onlineCount > 0 && (
+              <span className="text-emerald-400 font-semibold text-xs border-l border-slate-700 pl-2 flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> {onlineCount} online
+              </span>
+            )}
           </div>
           <button
             onClick={() => fetchUsers(search)}
@@ -420,7 +427,22 @@ const AdminDashboard = () => {
                     >
                       <td className="px-5 py-4 text-slate-500 font-mono text-xs">{i + 1}</td>
                       <td className="px-5 py-4">
-                        <span className="font-medium text-white">{user.username}</span>
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`w-2.5 h-2.5 rounded-full flex-shrink-0 transition-colors ${
+                              user.is_online
+                                ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse'
+                                : 'bg-slate-600'
+                            }`}
+                            title={user.is_online ? 'Online now' : 'Offline'}
+                          />
+                          <span className="font-medium text-white">{user.username}</span>
+                          {user.is_online && (
+                            <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                              Online
+                            </span>
+                          )}
+                        </div>
                       </td>
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-2">

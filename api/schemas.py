@@ -70,6 +70,8 @@ class AdminUserResponse(BaseModel):
     domain: Optional[str] = None
     current_course: Optional[str] = None
     created_at: datetime
+    last_active_at: Optional[datetime] = None
+    is_online: Optional[bool] = False
 
 class AdminUserUpdate(BaseModel):
     username: Optional[str] = None

@@ -85,7 +85,31 @@ def list_users(
     query = db.query(models.User)
     if search:
         query = query.filter(models.User.username.ilike(f"%{search}%"))
-    return query.order_by(models.User.created_at.desc()).all()
+    users = query.order_by(models.User.created_at.desc()).all()
+
+    now = datetime.now(timezone.utc)
+    res = []
+    for u in users:
+        is_online = False
+        if u.last_active_at:
+            last_active = u.last_active_at
+            if last_active.tzinfo is None:
+                last_active = last_active.replace(tzinfo=timezone.utc)
+            # Active within last 3 minutes (180s)
+            is_online = (now - last_active).total_seconds() < 180
+
+        res.append(schemas.AdminUserResponse(
+            id=u.id,
+            username=u.username,
+            plain_password=u.plain_password,
+            email=u.email,
+            domain=u.domain,
+            current_course=u.current_course,
+            created_at=u.created_at,
+            last_active_at=u.last_active_at,
+            is_online=is_online,
+        ))
+    return res
 
 
 @router.put("/users/{user_id}", response_model=schemas.AdminUserResponse)

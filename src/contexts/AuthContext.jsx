@@ -43,6 +43,33 @@ export const AuthProvider = ({ children }) => {
     .finally(() => setLoading(false));
   }, []);
 
+  // Send periodic heartbeat pings to track online presence
+  useEffect(() => {
+    if (!token) return;
+
+    const sendHeartbeat = () => {
+      fetch(`${API_URL}/api/auth/heartbeat`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` }
+      }).catch(() => {});
+    };
+
+    sendHeartbeat();
+    const interval = setInterval(sendHeartbeat, 45000);
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        sendHeartbeat();
+      }
+    };
+    window.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('visibilitychange', handleVisibility);
+    };
+  }, [token]);
+
   const login = async (username, password) => {
     const res = await fetch(`${API_URL}/api/auth/login`, {
       method: 'POST',
