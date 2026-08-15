@@ -65,6 +65,31 @@ def heartbeat(
     db.commit()
     return {"status": "ok"}
 
+@router.post("/offline", status_code=200)
+def set_offline(
+    token: Optional[str] = None,
+    request: Request = None,
+    db: Session = Depends(get_db)
+):
+    auth_token = token
+    if not auth_token and request:
+        auth_header = request.headers.get("Authorization", "")
+        if auth_header.startswith("Bearer "):
+            auth_token = auth_header.split(" ", 1)[1]
+
+    if auth_token:
+        try:
+            payload = jwt.decode(auth_token, auth.SECRET_KEY, algorithms=[auth.ALGORITHM])
+            username = payload.get("sub")
+            if username:
+                user = db.query(models.User).filter(models.User.username == username).first()
+                if user:
+                    user.last_active_at = None
+                    db.commit()
+        except Exception:
+            pass
+    return {"status": "offline"}
+
 @router.get("/profile", response_model=schemas.ProfileResponse)
 def get_profile(current_user: models.User = Depends(auth.get_current_user)):
     return current_user

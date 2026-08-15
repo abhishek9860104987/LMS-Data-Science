@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     .finally(() => setLoading(false));
   }, []);
 
-  // Send periodic heartbeat pings to track online presence
+  // Send periodic heartbeat pings & tab-close offline beacon
   useEffect(() => {
     if (!token) return;
 
@@ -51,6 +51,14 @@ export const AuthProvider = ({ children }) => {
       fetch(`${API_URL}/api/auth/heartbeat`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
+      }).catch(() => {});
+    };
+
+    const sendOffline = () => {
+      fetch(`${API_URL}/api/auth/offline`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` },
+        keepalive: true,
       }).catch(() => {});
     };
 
@@ -62,11 +70,20 @@ export const AuthProvider = ({ children }) => {
         sendHeartbeat();
       }
     };
+
+    const handleUnload = () => {
+      sendOffline();
+    };
+
     window.addEventListener('visibilitychange', handleVisibility);
+    window.addEventListener('pagehide', handleUnload);
+    window.addEventListener('beforeunload', handleUnload);
 
     return () => {
       clearInterval(interval);
       window.removeEventListener('visibilitychange', handleVisibility);
+      window.removeEventListener('pagehide', handleUnload);
+      window.removeEventListener('beforeunload', handleUnload);
     };
   }, [token]);
 
@@ -98,6 +115,13 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    if (token) {
+      fetch(`${API_URL}/api/auth/offline`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` },
+        keepalive: true,
+      }).catch(() => {});
+    }
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     setToken(null);
